@@ -1,12 +1,20 @@
 import React from 'react';
-import './App.css';
-import Counter from './components/Counter/Counter';
 import { connect } from 'react-redux';
+
+import Counter from './components/Counter/Counter';
 import { increaseCounter, decreaseCounter } from './actions/actions';
+import { TreadComponent } from './components/TreadComponent';
+
+import './App.scss';
 
 function App(props) {
     return (
       <div className="App">
+        <TreadComponent treadView="full"/>
+        <hr />
+        <TreadComponent/>
+        <TreadComponent/>
+        <TreadComponent/>
         <Counter counter={props.counter} increaseCounter={props.actions.increaseCounter} decreaseCounter={props.actions.decreaseCounter} />
       </div>
     );
@@ -26,6 +34,6 @@ const mapDispatchToProps = dispatch => {
       decreaseCounter: () => dispatch(decreaseCounter())
     }
   }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

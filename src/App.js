@@ -3,11 +3,14 @@ import './App.css';
 import Counter from './components/Counter/Counter';
 import { connect } from 'react-redux';
 import { increaseCounter, decreaseCounter } from './actions/actions';
+import Header from './components/Header/Header';
+import Navbar from './components/Navbar/Navbar';
 
 function App(props) {
     return (
       <div className="App">
-        <Counter counter={props.counter} increaseCounter={props.actions.increaseCounter} decreaseCounter={props.actions.decreaseCounter} />
+        <Header />
+        <Navbar />
       </div>
     );
 

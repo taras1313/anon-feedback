@@ -1,19 +1,18 @@
 import React from 'react';
 
+import Layout from './components/Layout/Layout';
+
 import { connect } from 'react-redux';
 import { increaseCounter, decreaseCounter } from './actions/actions';
 
-import Header from './components/Header/Header';
-import Navbar from './components/Navbar/Navbar';
-import AppRouter from './components/AppRouter/AppRouter';
+import './App.css';
+
 
 import './App.css';
 function App(props) {
     return (
       <div className="App">
-        <Header />
-        <Navbar />
-        <AppRouter />
+        <Layout />
       </div>
     );
 

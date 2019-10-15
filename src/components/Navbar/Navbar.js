@@ -1,4 +1,9 @@
 import React from 'react';
+
+import {
+  NavLink
+} from "react-router-dom";
+
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -38,8 +43,35 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+const navLinksData = [{
+  text:'Personal Cabinet',
+  path: '/cabinet',
+  icon: <PersonIcon />
+},
+{
+  text: 'My Feed',
+  path: '/feed',
+  icon: <DynamicFieldIcon />
+},
+{
+  text: 'All Threads',
+  path: '/',
+  icon: <ListIcon />
+}]
+
 export default function PermanentDrawerLeft() {
   const classes = useStyles();
+
+  const renderLinks = () => (
+    navLinksData.map(({text, icon, path}, index) => (
+      <NavLink to={path}>
+        <ListItem button key={text}>
+          <ListItemIcon className={classes.listIcon}>{icon}</ListItemIcon> 
+          <ListItemText primary={text} />
+        </ListItem>
+      </NavLink>
+    ))
+  )
 
   return (
     <div className={classes.root}>
@@ -54,24 +86,7 @@ export default function PermanentDrawerLeft() {
       >
         <Divider />
         <List component='nav'>
-          {[{
-            text:'Personal Cabinet',
-            icon: <PersonIcon />
-          },
-          {
-            text: 'My Feed',
-            icon: <DynamicFieldIcon />
-          },
-          {
-            text: 'All Threads',
-            icon: <ListIcon />
-          }
-            ].map(({text, icon}, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon className={classes.listIcon}>{icon}</ListItemIcon> 
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          {renderLinks()}
           </List>
           <Divider />
         </Drawer>

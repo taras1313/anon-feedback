@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: '20px'
   },
   inputInput: {
-    padding: '7px',
+    padding: '0',
     paddingLeft: '40px',
     transition: theme.transitions.create('width'),
     width: '100%',
@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   searchIcon: {
-    width: '45px',
+    width: '48px',
     height: '100%',
     position: 'absolute',
     pointerEvents: 'none',
@@ -49,7 +49,8 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
   },
   inputRoot: {
-    color: 'white'
+    color: 'white',
+    height: '100%',
   },
   createThreadButton: {
     backgroundColor: '#65c178',

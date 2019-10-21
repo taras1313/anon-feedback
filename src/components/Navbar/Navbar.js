@@ -54,6 +54,11 @@ const navLinksData = [{
   icon: <DynamicFieldIcon />
 },
 {
+  text: 'Thread with id 1',
+  path: '/feed/1',
+  icon: <DynamicFieldIcon />
+},
+{
   text: 'All Threads',
   path: '/',
   icon: <ListIcon />

@@ -1,0 +1,58 @@
+@import "../../styles/variables";
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 30px 0;
+  border-bottom: 1px solid $dirty-white;
+}
+
+.answersCount {
+  display: flex;
+  flex-direction: column;
+  color: $light-green;
+}
+
+.heading {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.hovered {
+  &:hover {
+    color: $dark-violet;
+    cursor: pointer;
+  }
+}
+
+.description {
+  margin: 16px 0;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+//.threadMetaInfo {
+//  color: $light-gray;
+//  display: flex;
+//  font-size: 13px;
+//  width: 100%;
+//  align-items: flex-end;
+//}
+
+.counterWrapper {
+  display: flex;
+  justify-content: space-evenly;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+//.divider {
+//  margin: 0 8px;
+//}
+//
+//.icon {
+//  max-width: 20px;
+//  max-height: 20px;
+//  margin-right: 6px;
+//}

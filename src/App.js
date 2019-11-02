@@ -3,18 +3,18 @@ import { connect } from 'react-redux';
 
 import Counter from './components/Counter/Counter';
 import { increaseCounter, decreaseCounter } from './actions/actions';
-import { TreadComponent } from './components/TreadComponent';
+import { ThreadComponent } from './components/TreadComponent';
 
 import './App.scss';
 
 function App(props) {
     return (
       <div className="App">
-        <TreadComponent treadView="full"/>
+        <ThreadComponent treadView="full"/>
         <hr />
-        <TreadComponent/>
-        <TreadComponent/>
-        <TreadComponent/>
+        <ThreadComponent/>
+        <ThreadComponent/>
+        <ThreadComponent/>
         <Counter counter={props.counter} increaseCounter={props.actions.increaseCounter} decreaseCounter={props.actions.decreaseCounter} />
       </div>
     );

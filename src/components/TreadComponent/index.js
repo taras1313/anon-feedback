@@ -1,1 +1,1 @@
-export * from './TreadComponent';
+export * from './ThreadComponent';

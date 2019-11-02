@@ -5,7 +5,7 @@ import ThumbDownOutlinedIcon from '@material-ui/icons/ThumbDown';
 import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUp';
 import cx from 'classnames';
 
-import styles from './TreadComponent.module.scss';
+import styles from './ThreadComponent.module.scss';
 
 const randomize = () => Math.floor(Math.random() * 10);
 const PREVIEW = 'preview';
@@ -13,22 +13,22 @@ const FULL = 'full';
 const viewTypes = [PREVIEW, FULL];
 //todo like logic- when to disable, already liked functionality, dislike cancels like etc.
 
-export class TreadComponent extends Component {
+export class ThreadComponent extends Component {
   constructor(props) {
     super(props);
-    const { treadView } = props;
+    const { ThreadView } = props;
 
-    this.renderContent = treadView === FULL ? this.renderTread : this.renderPreviewTread;
+    this.renderContent = ThreadView === FULL ? this.renderThread : this.renderPreviewThread;
   }
 
-  renderTread = () => {
+  renderThread = () => {
     const { answersCount } = this.props;
 
     return (
       <Fragment>
         <div>
-          {this.renderTreadAuthor()}
-          {this.renderTreadHeader()}
+          {this.renderThreadAuthor()}
+          {this.renderThreadHeader()}
           <div className={styles.description}>
             I want to loot 1.5k but I dunno where to start and which programming language should i choose.
             Both swift and go are popular and well paid but first of all I'm interested in learning blyadski facades and observers.
@@ -41,25 +41,24 @@ export class TreadComponent extends Component {
             Its syntax is traditionally coming from C, but it has done a lot of modification to improve upon features like simplicity and safety.
             Tirka 23
           </div>
-          {this.renderTreadMetaInfo()}
+          {this.renderThreadMetaInfo()}
         </div>
       </Fragment>
     );
   };
   // action
 
-  renderTreadAuthor = () => {
+  renderThreadAuthor = () => {
     const {
       author: {
         nickName = 'Ne Tot Pazan'
       }
     } = this.props;
-    const [firstLetter, secondLetter] = nickName;
 
     return (
-      <div className={styles.treadAuthor}>
-        <div className={styles.treadAuthorBox}>
-          {firstLetter + secondLetter}
+      <div className={styles.threadAuthor}>
+        <div className={styles.threadAuthorBox}>
+          {nickName.slice(0, 2)}
         </div>
         <span>
          {nickName}
@@ -68,13 +67,13 @@ export class TreadComponent extends Component {
     );
   };
 
-  renderTreadHeader = () => {
-    const { treadView } = this.props;
+  renderThreadHeader = () => {
+    const { ThreadView } = this.props;
 
     return (
       <div
         className={cx(styles.heading, {
-          [styles.hovered]: treadView === PREVIEW
+          [styles.hovered]: ThreadView === PREVIEW
         })}
       >
         What to learn SWIFT or GO?
@@ -82,11 +81,11 @@ export class TreadComponent extends Component {
     )
   };
 
-  renderTreadMetaInfo = () => {
+  renderThreadMetaInfo = () => {
     const { subscribersCount, dislikesCount, likesCount } = this.props;
 
     return (
-      <div className={styles.treadMetaInfo}>
+      <div className={styles.threadMetaInfo}>
         {subscribersCount} subscribers
         <span className={styles.divider}>-</span>
         {new Date().toISOString()}
@@ -98,15 +97,15 @@ export class TreadComponent extends Component {
     );
   };
 
-  renderPreviewTread = () => {
+  renderPreviewThread = () => {
     const { answersCount } = this.props;
 
     return (
       <Fragment>
         <div>
-          {this.renderTreadAuthor()}
-          {this.renderTreadHeader()}
-          {this.renderTreadMetaInfo()}
+          {this.renderThreadAuthor()}
+          {this.renderThreadHeader()}
+          {this.renderThreadMetaInfo()}
         </div>
         <div className={styles.answersCount}>
           <div className={styles.counterWrapper}>
@@ -128,7 +127,7 @@ export class TreadComponent extends Component {
   }
 }
 
-TreadComponent.propTypes = {
+ThreadComponent.propTypes = {
   heading: PropTypes.string,
   answersCount: PropTypes.number,
   subscribersCount: PropTypes.number,
@@ -136,7 +135,7 @@ TreadComponent.propTypes = {
   content: PropTypes.string,
   likesCount: PropTypes.number,
   dislikesCount: PropTypes.number,
-  treadView: PropTypes.oneOf(viewTypes),
+  ThreadView: PropTypes.oneOf(viewTypes),
   author: PropTypes.object,
   onLikeClick: PropTypes.func,
   onDislikeClick: PropTypes.func,
@@ -144,8 +143,8 @@ TreadComponent.propTypes = {
   onEditClick: PropTypes.func
 };
 
-TreadComponent.defaultProps = {
-  treadView: PREVIEW, // edit
+ThreadComponent.defaultProps = {
+  ThreadView: PREVIEW, // edit
   subscribersCount: randomize(),
   answersCount: randomize(),
   dislikesCount: randomize(),

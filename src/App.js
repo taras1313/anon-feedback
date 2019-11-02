@@ -5,8 +5,6 @@ import Layout from './components/Layout/Layout';
 import { connect } from 'react-redux';
 import { setUser, logOut } from './actions/userActions';
 
-import './App.css';
-
 class App extends Component {
 	componentDidMount() {
 		window.gapi.load('auth2', () => {

@@ -3,18 +3,22 @@ import { Route, Switch } from 'react-router-dom';
 
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
-import { TreadComponent } from '../TreadComponent';
+import { ThreadComponent } from '../TreadComponent';
 
 import styles from './Layout.module.scss';
 import { userService } from '../../services/index';
 
 const Feed = () => <p>Feed</p>;
 const Cabinet = () => <p>Personal Cabinet</p>;
-const Threads = () =>         (<><TreadComponent treadView="full"/>
-<hr />
-<TreadComponent/>
-<TreadComponent/>
-<TreadComponent/></>)
+const Threads = () => (
+	<>
+		<ThreadComponent treadView="full" />
+		<hr />
+		<ThreadComponent />
+		<ThreadComponent />
+		<ThreadComponent />
+	</>
+);
 const ThreadPage = ({ match }) => <p>You have chosen thread with id value {match.params.id}</p>;
 
 class LoginPage extends React.Component {

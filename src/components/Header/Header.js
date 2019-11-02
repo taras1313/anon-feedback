@@ -17,6 +17,10 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'row',
     height: '70px'
   },
+  headerPlaceholder: {
+    width: '100%',
+    height: '70px'
+  },
   search: {
     position: 'relative',
     border: '1px solid grey',
@@ -66,6 +70,7 @@ export default function ButtonAppBar(props) {
   const classes = useStyles();
 
   return (
+    <>
     <AppBar position="fixed" className={classes.header}>
       <div className={styles.logoWrapper}>
         <img className={styles.logo} src={logo} alt='logo'/>
@@ -93,5 +98,7 @@ export default function ButtonAppBar(props) {
       </div>
 
     </AppBar>
+    <div className={classes.headerPlaceholder} />
+    </>
   );
 }

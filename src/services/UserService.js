@@ -1,12 +1,13 @@
 import { pathList } from './constants';
-
+import { GoogleAuthService } from './GoogleAuthService';
 export class UserService {
-  constructor(adapter) {
-    this._adapter = adapter;
-    this._baseUrl = pathList.user.base;
-  }
+	constructor(adapter) {
+		this._adapter = adapter;
+		this._baseUrl = pathList.user.base;
+		this._loginUrl = pathList.user.login;
+	}
 
-  getCurrentUser = (params) => {
-    return this._adapter.get(this._baseUrl, params).then(({ data }) => ({ data }));
-  };
+	loginUser = () =>
+		GoogleAuthService.signIn().then(data => this._adapter.post(this._loginUrl, data).then(({ data }) => data));
+	signOut = () => GoogleAuthService.signOut();
 }

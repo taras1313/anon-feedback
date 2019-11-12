@@ -1,21 +1,14 @@
 import { INCREMENT, DECREMENT } from '../types/actionTypes';
 import { combineReducers } from 'redux';
+import userReducer from '../reducers/userReducer';
 
-const initialState = {
-  counter: 0,
-};
+const initialState = {};
 
 const appReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case INCREMENT:
-      return {...state, counter: state.counter + 1};
+	switch (action.type) {
+		default:
+			return state;
+	}
+};
 
-    case DECREMENT:
-      return {...state, counter: state.counter - 1};
-  
-    default:
-      return state
-  }
-} 
-
-export default combineReducers({ appReducer })
+export default combineReducers({ appReducer, userReducer });

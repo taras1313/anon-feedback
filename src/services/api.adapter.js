@@ -25,9 +25,11 @@ export class ApiAdapter {
 
   post = (path, body = {}) => {
     const endpoint = this.composeUrl(path);
-
+    
     const request = axios.post(endpoint, body)
-      .then(response => response)
+      .then(response => {
+        return response;
+      })
       .catch(error => Promise.reject({ error }));
 
     return request;

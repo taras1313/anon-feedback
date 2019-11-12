@@ -66,7 +66,7 @@ export default function ButtonAppBar(props) {
   const classes = useStyles();
 
   return (
-    <AppBar position="static" className={classes.header}>
+    <AppBar position="fixed" className={classes.header}>
       <div className={styles.logoWrapper}>
         <img className={styles.logo} src={logo} alt='logo'/>
       </div>

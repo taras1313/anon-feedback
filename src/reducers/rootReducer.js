@@ -1,4 +1,3 @@
-import { INCREMENT, DECREMENT } from '../types/actionTypes';
 import { combineReducers } from 'redux';
 import userReducer from '../reducers/userReducer';
 

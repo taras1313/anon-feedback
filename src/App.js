@@ -18,7 +18,8 @@ class App extends Component {
 		});
 	}
 
-	isUserLoggedIn = () => !!this.props.user;
+	// isUserLoggedIn = () => !!this.props.user;//42069
+	isUserLoggedIn = () => true;
 
 	render() {
 		const { setUser, logOut } = this.props.actions;

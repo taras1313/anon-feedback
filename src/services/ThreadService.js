@@ -7,6 +7,10 @@ export class ThreadService {
   }
 
   getThreads = (params) => {
-    return this._adapter.get(this._baseUrl, params).then(({ data }) => ({ data }));
+    return this._adapter.get(this._baseUrl, params).then(({ data }) => data);
   };
+  
+  getThread = (id) => {
+    return this._adapter.get(`${this._baseUrl}/${id}`).then(({ data }) => ({ data }));
+  }
 }

@@ -3,23 +3,16 @@ import { Route, Switch } from 'react-router-dom';
 
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
-import { ThreadComponent } from '../TreadComponent';
+// import { ThreadComponent } from '../TreadComponent';
+
+import { ThreadViewPage } from '../ThreadViewPage';
+import { AllThreadsPage } from '../AllThreadsPage';
 
 import styles from './Layout.module.scss';
 import { userService } from '../../services/index';
 
 const Feed = () => <p>Feed</p>;
 const Cabinet = () => <p>Personal Cabinet</p>;
-const Threads = () => (
-	<>
-		<ThreadComponent treadView="full" />
-		<hr />
-		<ThreadComponent />
-		<ThreadComponent />
-		<ThreadComponent />
-	</>
-);
-const ThreadPage = ({ match }) => <p>You have chosen thread with id value {match.params.id}</p>;
 
 class LoginPage extends React.Component {
 	loginHandler = () => {
@@ -46,8 +39,8 @@ export default function Layout({ isUserLoggedIn, setUser }) {
 			<Navbar />
 			<div className={styles.mainWrapper}>
 				<Switch>
-					<Route path="/" exact component={Threads} />
-					<Route path="/feed/:id" component={ThreadPage} />
+					<Route path="/" exact component={AllThreadsPage} />
+					<Route path="/feed/:id" component={ThreadViewPage} />
 					<Route path="/feed" component={Feed} />
 					<Route path="/cabinet" component={Cabinet} />
 				</Switch>

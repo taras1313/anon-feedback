@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { ThreadComponent } from '../TreadComponent';
-import { threadService } from '../../services';
 import Loader from '../Loader/Loader';
 
 export class ThreadViewPage extends React.Component {
@@ -16,9 +15,15 @@ export class ThreadViewPage extends React.Component {
 	}
 
 	render() {
-		const { thread } = this.props;
+		const {
+			thread,
+			actions: { likeThread, dislikeThread }
+		} = this.props;
+		
 		if (!thread) return <Loader />;
 
-		return <ThreadComponent threadView="full" {...this.props} />;
+		return (
+			<ThreadComponent likeThread={likeThread} dislikeThread={dislikeThread} threadView="full" {...this.props} />
+		);
 	}
 }

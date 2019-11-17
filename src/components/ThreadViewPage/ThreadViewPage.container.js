@@ -6,7 +6,9 @@ import {
   setThreadData,
   subscribeToThread,
   unsubscribeFromThread,
-  getThreadById
+  getThreadById,
+  like as likeThread,
+  dislike as dislikeThread
 } from '../../actions/threadActions';
 
 const mapStateToProps = (
@@ -21,7 +23,9 @@ const mapDispatchToProps = (dispatch) => ({
     setThreadData,
     subscribeToThread,
     unsubscribeFromThread,
-    getThreadById
+    getThreadById,
+    likeThread,
+    dislikeThread
   }, dispatch)
 });
 

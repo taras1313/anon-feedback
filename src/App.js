@@ -16,15 +16,16 @@ class App extends Component {
 		});
 	}
 
-	// isUserLoggedIn = () => !!this.props.user;//42069
-	isUserLoggedIn = () => true;
+	isUserLoggedIn = () => !!this.props.user; //42069
+	// isUserLoggedIn = () => true;
 
 	render() {
 		const { setUser, logOut } = this.props.actions;
+		const { _id } = this.props.user;
 
 		return (
 			<div className="App">
-				<Layout isUserLoggedIn={this.isUserLoggedIn()} logOut={logOut} setUser={setUser} />
+				<Layout isUserLoggedIn={this.isUserLoggedIn()} logOut={logOut} setUser={setUser} userId={_id} />
 			</div>
 		);
 	}

@@ -112,7 +112,7 @@ export class ThreadComponent extends Component {
     const subscribed = this.isSubscribed();
 
     return (
-      <Fragment>
+        <div className={styles.threadFullWrapper}>
           <div className={styles.headingWrapper}>
             <ThreadAuthorComponent nickName={authorName} />
             {
@@ -148,7 +148,7 @@ export class ThreadComponent extends Component {
           isOpen={editThreadOpen}
           action="edit"
         />
-      </Fragment>
+        </div>
     );
   };
 

@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
-import userReducer from '../reducers/userReducer';
+import userReducer from './userReducer';
+import threadsReducer from './threadsReducer';
 
 const initialState = {};
 
@@ -10,4 +11,4 @@ const appReducer = (state = initialState, action) => {
 	}
 };
 
-export default combineReducers({ appReducer, userReducer });
+export default combineReducers({ appReducer, userReducer, threadsReducer });

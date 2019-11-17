@@ -6,8 +6,8 @@
   "dependencies": {
     "@material-ui/core": "^4.5.0",
     "@material-ui/icons": "^4.4.3",
+    "@material-ui/lab": "^4.0.0-alpha.32",
     "axios": "^0.19.0",
-    "react-router-dom": "^5.1.2",
     "classnames": "^2.2.6",
     "material-ui": "^0.20.2",
     "node-sass": "^4.12.0",
@@ -15,9 +15,11 @@
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-redux": "^7.1.1",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.2",
     "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "unique-names-generator": "^4.1.1"
   },
   "scripts": {
     "start": "REACT_APP_ENV=development react-scripts start",

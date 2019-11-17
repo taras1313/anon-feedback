@@ -5,28 +5,20 @@ import { threadService } from '../../services';
 import Loader from '../Loader/Loader';
 
 export class ThreadViewPage extends React.Component {
-	state = {
-		thread: null
-	};
-
 	componentDidMount() {
-		console.log({ ...this.props });
-
 		const {
+			actions: { getThreadById },
 			match: {
 				params: { id }
 			}
 		} = this.props;
-
-		threadService.getThread(id).then(data => {
-			this.setState({ thread: data });
-		});
+		getThreadById(id);
 	}
 
 	render() {
-		const { thread } = this.state;
+		const { thread } = this.props;
 		if (!thread) return <Loader />;
 
-		return <ThreadComponent threadView="full" thread={thread} />;
+		return <ThreadComponent threadView="full" {...this.props} />;
 	}
 }

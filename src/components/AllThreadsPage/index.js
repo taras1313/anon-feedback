@@ -1,1 +1,1 @@
-export * from './AllThreadsPage';
+export * from './AllThreadsPage.container';

@@ -1,1 +1,1 @@
-export * from './ThreadViewPage';
+export * from './ThreadViewPage.container';

@@ -28,8 +28,9 @@ const useStyles = makeStyles(theme => ({
 		color: 'white',
 		top: '70px',
 		backgroundColor: '#4f5a6e',
-		width: '251px',
-		borderRight: '1px solid #363d4a'
+		width: '250px',
+		// borderRight: '1px solid #363d4a'
+		border: 'none'
 	},
 	content: {
 		flexGrow: 1,
@@ -88,7 +89,6 @@ export default function PermanentDrawerLeft() {
 				}}
 				anchor="left"
 			>
-				<Divider />
 				<List component="nav">{renderLinks()}</List>
 				<Divider />
 			</Drawer>

@@ -32,14 +32,6 @@
   line-height: 24px;
 }
 
-//.threadMetaInfo {
-//  color: $light-gray;
-//  display: flex;
-//  font-size: 13px;
-//  width: 100%;
-//  align-items: flex-end;
-//}
-
 .counterWrapper {
   display: flex;
   justify-content: space-evenly;
@@ -47,12 +39,30 @@
   margin-bottom: 6px;
 }
 
-//.divider {
-//  margin: 0 8px;
-//}
-//
-//.icon {
-//  max-width: 20px;
-//  max-height: 20px;
-//  margin-right: 6px;
-//}
+.headingWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subsWrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.divider {
+  width: 100%;
+  background: #dcdcdc;
+  height: 1px;
+  margin: 20px 0;
+}
+
+.btn {
+  width: 150px;
+}
+
+.threadFullWrapper {
+  width: 100%;
+}

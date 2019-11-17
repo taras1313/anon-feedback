@@ -44,4 +44,14 @@ export class ApiAdapter {
 
     return request;
   };
+
+  patch = (path, body = {}) => {
+    const endpoint = this.composeUrl(path);
+
+    const request = axios.patch(endpoint, body)
+      .then(response => response)
+      .catch(error => Promise.reject({ error }));
+
+    return request;
+  };
 }

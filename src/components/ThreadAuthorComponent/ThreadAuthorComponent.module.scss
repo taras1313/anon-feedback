@@ -23,3 +23,17 @@
   text-transform: uppercase;
   margin-right: 8px;
 }
+
+.authorInfo {
+  display: flex;
+  align-items: flex-end;
+}
+
+.role {
+  margin-left: 8px;
+  color: $dark-gray;
+  font-size: 13px;
+  font-weight: normal;
+  text-transform: capitalize;
+  font-style: italic;
+}

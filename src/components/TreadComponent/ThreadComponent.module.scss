@@ -1,4 +1,5 @@
 @import "../../styles/variables";
+@import "../../styles/fonts";
 
 .wrapper {
   display: flex;
@@ -30,6 +31,7 @@
   margin: 16px 0;
   font-size: 15px;
   line-height: 24px;
+  white-space: pre-line;
 }
 
 .counterWrapper {
@@ -65,4 +67,23 @@
 
 .threadFullWrapper {
   width: 100%;
+}
+
+.dividerWrapper {
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: $primary-font;
+  padding: 12px 0;
+  border-bottom: 2px solid #333;
+  display: flex;
+}
+
+.userHighlight {
+
+}
+
+.comments {
+  margin: 26px 0;
 }

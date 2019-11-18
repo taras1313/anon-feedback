@@ -81,7 +81,7 @@ export default function ButtonAppBar(props) {
     <>
       <AppBar position="fixed" className={classes.header}>
         <div className={styles.logoWrapper}>
-          <img className={styles.logo} src={logo} alt='logo' />
+          <img className={styles.logo} src="https://image.flaticon.com/icons/svg/2165/2165678.svg" alt='logo' />
         </div>
 
         <div className={styles.searchWrapper}>

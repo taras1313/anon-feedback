@@ -30,8 +30,33 @@ export const editThread = () => (dispatch, getState) => {
   return threadService.updateThread(data);
 };
 
+export const onCreateComment = ({ nickName: username, commentText: text }) => (dispatch, getState) => {
+  const {
+    userReducer: {
+      user: { _id: userId },
+    },
+    threadsReducer: {
+      selectedThread: { _id: threadId }
+    }
+  } = getState();
+
+  const params = { userId, threadId, username, text };
+
+  return threadService.createComment(params).then(data => dispatch(setSelectedThread(data)));
+};
+
+export const onUpdateComment = ({ commentId, text }) => (dispatch, getState) => {
+  const { threadsReducer: { selectedThread: { _id: threadId } } } = getState();
+  const params = { threadId, commentId, text };
+
+  return threadService.updateComment(params).then(data => dispatch(setSelectedThread(data)));
+  // threadId, commentId, text
+};
+
 export const setThreadData = (payload) => ({ type: SET_THREAD_DATA, payload });
+
 export const setSelectedThread = (payload) => ({ type: SET_SELECTED_THREAD, payload });
+
 export const setAllThreads = (payload) => ({ type: SET_ALL_THREADS, payload });
 export const changeThread = (payload) => ({ type: CHANGE_THREAD, payload });
 

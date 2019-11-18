@@ -135,6 +135,7 @@ export class ThreadComponent extends Component {
     const {
       userId,
       thread: {
+        _id: id,
         text,
         subscribersCount,
         dislikesCount,
@@ -165,7 +166,6 @@ export class ThreadComponent extends Component {
           {text}
         </div>
         <div className={styles.subsWrapper}>
-
           <ThreadAuditComponent
             subscribersCount={subscribersCount}
             dislikesCount={dislikesCount}

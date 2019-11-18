@@ -13,13 +13,14 @@ export const ThreadAuditComponent = ({
 	isClickable,
 	like,
 	dislike,
-	likeStatus
+  likeStatus,
+  createdDate
 }) => {
 	return (
 		<div className={styles.threadMetaInfo}>
 			{subscribersCount} subscribers
 			<span className={styles.divider}>-</span>
-			{new Date().toISOString()}
+			{createdDate}
 			<span className={styles.divider}>-</span>
 			<div onClick={isClickable ? () => like() : null}>
 				<ThumbUpOutlinedIcon

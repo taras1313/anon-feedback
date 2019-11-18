@@ -6,6 +6,8 @@ export const pathList = {
     login: '/users/login'
   },
   thread: {
-    base: '/threads'
+    base: '/threads',
+    like: '/threads/like',
+    dislike: '/threads/dislike'
   }
 };

@@ -9,5 +9,6 @@ export class UserService {
 
 	loginUser = () =>
 		GoogleAuthService.signIn().then(data => this._adapter.post(this._loginUrl, data).then(({ data }) => data));
+		
 	signOut = () => GoogleAuthService.signOut();
 }

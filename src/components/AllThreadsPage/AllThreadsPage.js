@@ -5,9 +5,9 @@ import Loader from '../Loader/Loader';
 
 export class AllThreadsPage extends React.Component {
   renderThreads() {
-    const { threads } = this.props;
+    const { threads, userId } = this.props;
 
-    return threads.map(el => <ThreadComponent key={el._id} threadView="preview" thread={el} />);
+    return threads.map(el => <ThreadComponent key={el._id} threadView="preview" thread={el} userId={userId} />);
   }
 
   componentDidMount() {

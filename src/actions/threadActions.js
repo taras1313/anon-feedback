@@ -5,7 +5,8 @@ import {
   RESET_THREAD,
   SET_THREAD_DATA,
   SET_SELECTED_THREAD,
-  SET_ALL_THREADS
+  SET_ALL_THREADS,
+  CHANGE_THREAD
 } from '../types/threadTypes';
 
 export const updateThreadField = (payload) => ({ type: UPDATE_THREAD_FIELD, payload });
@@ -32,6 +33,7 @@ export const editThread = () => (dispatch, getState) => {
 export const setThreadData = (payload) => ({ type: SET_THREAD_DATA, payload });
 export const setSelectedThread = (payload) => ({ type: SET_SELECTED_THREAD, payload });
 export const setAllThreads = (payload) => ({ type: SET_ALL_THREADS, payload });
+export const changeThread = (payload) => ({ type: CHANGE_THREAD, payload });
 
 export const getThreadById = (id) => (dispatch) => {
   threadService.getThread(id).then(data => dispatch(setSelectedThread(data)));
@@ -53,3 +55,14 @@ export const unsubscribeFromThread = (data) => (dispatch) => {
 export const getAllThreads = () => (dispatch) => {
   threadService.getThreads().then(data => dispatch(setAllThreads(data)));
 };
+
+export const like = (payload) => (dispatch) => {
+  const { id, userId } = payload;
+  console.log(payload, 'payload');
+  threadService.like({ id, userId }).then(data => dispatch(changeThread({id, thread: {...data}})))
+}
+
+export const dislike = (payload) => (dispatch) => {
+  const { id, userId } = payload;
+  threadService.dislike({ id, userId }).then(data => dispatch(changeThread({id, thread: {...data}})))
+}

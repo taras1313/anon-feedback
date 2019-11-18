@@ -42,7 +42,8 @@ const useStyles = makeStyles(theme => ({
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    width: '100%'
+    width: '100%',
+    whiteSpace: 'pre-line'
   },
   smallTextField: {
     width: 200
@@ -62,7 +63,8 @@ const useStyles = makeStyles(theme => ({
   button: {
     fontWeight: 'bold',
     boxShadow: 'none',
-    marginLeft: '16px'
+    marginLeft: '16px',
+    fontSize: '0.7rem'
   },
   submitBtn: {
     backgroundColor: '#65c178',
@@ -113,7 +115,7 @@ export const ManipulateThreadComponent = (
     setIsChecked(!isChecked);
   };
 
-  const updateThreadData = ({ target: { value, name } }) => updateThreadField({ field: name, value });
+  const updateThreadData = ({ target: { value, name } }) => {console.log(value.toString());updateThreadField({ field: name, value })};
 
   const manipulateThread = () => {
     switch (action) {
@@ -200,6 +202,8 @@ export const ManipulateThreadComponent = (
             name="title"
             className={classes.textField}
             margin="normal"
+            variant="outlined" // ?
+            // variant="filled" // ?
           />
 
           <TextField
@@ -214,6 +218,9 @@ export const ManipulateThreadComponent = (
             name="text"
             className={classes.textField}
             margin="normal"
+            variant="outlined" // ?
+            // variant="filled" // ?
+
           />
 
           <div className={classes.controlBtns}>

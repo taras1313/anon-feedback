@@ -7,6 +7,8 @@ import {
   subscribeToThread,
   unsubscribeFromThread,
   getThreadById,
+  onCreateComment,
+  onUpdateComment,
   like as likeThread,
   dislike as dislikeThread
 } from '../../actions/threadActions';
@@ -24,6 +26,8 @@ const mapDispatchToProps = (dispatch) => ({
     subscribeToThread,
     unsubscribeFromThread,
     getThreadById,
+    onCreateComment,
+    onUpdateComment,
     likeThread,
     dislikeThread
   }, dispatch)

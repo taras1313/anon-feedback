@@ -1,0 +1,22 @@
+.buttonContainer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	height: 60px;
+	padding: 10px 0px;
+}
+
+.iconWrapper {
+	height: 16px;
+	width: 16px;
+	margin: 0px 6px;
+	svg {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.active {
+  color: white !important;
+  background-color: #3f51b5 !important;
+}

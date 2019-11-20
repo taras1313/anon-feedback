@@ -91,7 +91,8 @@ export const ManipulateThreadComponent = (
       resetThreadFields,
       createThread,
       editThread,
-      setSelectedThread
+      setSelectedThread,
+      setUser
     },
     threadData: {
       title,
@@ -128,11 +129,12 @@ export const ManipulateThreadComponent = (
       }
 
       case CREATE: {
-        createThread().then(data => {
-          const { _id } = data;
+        createThread().then(({thread, user}) => {
+          const { _id } = thread;
           const { push } = history;
 
-          setSelectedThread(data);
+          setSelectedThread(thread);
+          setUser(user);
           push(`/feed/${_id}`);
           onClose();
         });

@@ -14,6 +14,20 @@ export class ThreadViewPage extends React.Component {
 		getThreadById(id);
 	}
 
+	componentDidUpdate({match: {
+		params: { id: prevId }
+	}}) {
+
+		const {
+			actions: { getThreadById },
+			match: {
+				params: { id }
+			}
+		} = this.props;
+
+		prevId !== id && getThreadById(id);
+	}
+
 	render() {
 		const {
 			thread,

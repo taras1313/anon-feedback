@@ -1,4 +1,5 @@
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 import HeaderComponent from './Header';
 
@@ -11,5 +12,6 @@ const mapDispatchToProps = (dispatch) => {
 
 };
 
-export const Header = connect(mapStateToProps, mapDispatchToProps)(HeaderComponent);
+export const Header = withRouter(HeaderComponent);
+// export const Header = withRouter(connect(mapStateToProps, mapDispatchToProps)(HeaderComponent));
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import Chip from '@material-ui/core/Chip';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
@@ -12,6 +13,13 @@ const useStyles = makeStyles(theme => ({
   root: {
     width: '80%',
     height: '70vh'
+  },
+  chip: {
+    marginLeft: '6px',
+    height: '26px'
+  },
+  repliedToWrapper: {
+    marginTop: '10px'
   },
   appBar: {
     position: 'relative',
@@ -66,7 +74,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const CreateCommentComponent = ({ username = '', onCreateComment }) => {
+export const CreateCommentComponent = (
+  {
+    username = '',
+    onCreateComment,
+    repliedTo,
+    onRepliedToReset
+  }
+) => {
   const classes = useStyles();
   const [isChecked, setIsChecked] = useState(!!username);
   const [nickName, setNickName] = useState(username);
@@ -94,8 +109,12 @@ export const CreateCommentComponent = ({ username = '', onCreateComment }) => {
     setIsChecked(false);
   };
 
-  const createCommentHandler = () => onCreateComment({ nickName, commentText })
-    .then(resetCommentFields);
+  const createCommentHandler = () => {
+    onRepliedToReset && onRepliedToReset();
+
+    onCreateComment({ nickName, commentText, repliedTo })
+      .then(resetCommentFields);
+  };
 
   return (
     <div>
@@ -125,6 +144,18 @@ export const CreateCommentComponent = ({ username = '', onCreateComment }) => {
         </div>
       )}
 
+      {repliedTo && (
+        <div className={classes.repliedToWrapper}>
+          Comment replied to
+          <Chip
+            label={`@${repliedTo}`}
+            onDelete={onRepliedToReset}
+            color="primary"
+            variant="outlined"
+            className={classes.chip}
+          />
+        </div>
+      )}
       <TextField
         required
         autoComplete='off'

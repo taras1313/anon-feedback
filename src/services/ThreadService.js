@@ -58,4 +58,12 @@ export class ThreadService {
 	dislike = ({ id, userId }) => {
 		return this._adapter.patch(`${this._dislikeUrl}`, { id, userId }).then(({ data }) => data);
 	};
+
+	likeComment = ({ id, userId, commentId }) => {
+		return this._adapter.patch(`${this._baseUrl}/like-comment`, { id, userId, commentId }).then(({ data }) => data);
+	};
+
+	dislikeComment = ({ id, userId, commentId }) => {
+		return this._adapter.patch(`${this._baseUrl}/dislike-comment`, { id, userId, commentId }).then(({ data }) => data);
+	};
 }

@@ -31,13 +31,13 @@ export class ThreadViewPage extends React.Component {
 	render() {
 		const {
 			thread,
-			actions: { likeThread, dislikeThread }
+			actions: { likeThread, dislikeThread, likeComment, dislikeComment }
 		} = this.props;
 		
 		if (!thread) return <Loader />;
 
 		return (
-			<ThreadComponent likeThread={likeThread} dislikeThread={dislikeThread} threadView="full" {...this.props} />
+			<ThreadComponent likeThread={likeThread} dislikeThread={dislikeThread} likeComment={likeComment} dislikeComment={dislikeComment} threadView="full" {...this.props} />
 		);
 	}
 }

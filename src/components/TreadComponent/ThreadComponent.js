@@ -150,11 +150,14 @@ export class ThreadComponent extends Component {
         dislikesCount,
         likesCount,
         commentsList,
+        commentsCount,
         createdDate,
         author: { userId: threadAuthorId, username: authorName } = {}
       },
       likeThread,
       dislikeThread,
+      likeComment,
+      dislikeComment,
       actions: { onCreateComment, onUpdateComment }
     } = this.props;
     const subscribed = this.isSubscribed();
@@ -197,7 +200,7 @@ export class ThreadComponent extends Component {
           </Button>
         </div>
         <div className={styles.dividerWrapper}>
-          Total comments ({8})
+          Total comments ({commentsCount})
         </div>
 
         <div className={styles.comments}>
@@ -205,12 +208,15 @@ export class ThreadComponent extends Component {
 
             return (
               <CommentComponent
+                threadId={id}
                 userId={userId}
                 onUpdateComment={onUpdateComment}
                 editable={el.author.userId === userId}
                 comment={el}
                 isAuthorsComment={el.author.userId === threadAuthorId}
                 repliedToHandler={this.repliedToHandler}
+                likeComment={likeComment}
+                dislikeComment={dislikeComment}
               />
             )
           })}

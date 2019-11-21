@@ -1,21 +1,15 @@
 import { SET_USER, LOG_OUT } from '../types/userTypes';
 
 const initialState = {
-	// user: {
-	// 	createdThreads: [],
-	// 	email: "tyakymiuk@griddynamics.com",
-	// 	subscribedThreads: [],
-	// 	__v: 0,
-	// 	_id: "5db078ddb266691dcc21c801"
-	// }
+	// user: null
 	user: {
 		createdThreads: [],
-		email: "smolchanov@griddynamics.com",
+		email: "tyakymiuk@griddynamics.com",
 		subscribedThreads: [],
 		__v: 0,
-		_id: "5db078ddb266691dcc21c809"
+		_id: "5dd5afc8246ffd1d8a45e02f"
+		// _id: "5db078ddb266691dcc21c801"
 	}
-	// user: null
 };
 
 const userReducer = (state = initialState, action) => {

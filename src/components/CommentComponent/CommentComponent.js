@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
-import { ThreadAuthorComponent } from '../ThreadAuthorComponent';
-import { ThreadAuditComponent } from '../ThreadAuditComponent';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import withStyles from '@material-ui/core/styles/withStyles';
+import Chip from '@material-ui/core/Chip';
 import cx from 'classnames';
+
+import { ThreadAuthorComponent } from '../ThreadAuthorComponent';
+import { ThreadAuditComponent } from '../ThreadAuditComponent';
 
 import styles from './CommentComponent.module.scss';
 
-export class CommentComponent extends Component {
+const classes = () => ({
+  chip: {
+    marginRight: '6px',
+    height: '26px'
+  }
+});
+
+class Comment extends Component {
   state = {
     isEditing: false,
     text: '',
@@ -53,12 +63,26 @@ export class CommentComponent extends Component {
 
   constructAdditionalText = () => {
     const { comment: { wasEdited }, isAuthorsComment } = this.props;
+    let text = '';
+    if (isAuthorsComment) {
+      text = '@thread author ';
+    }
 
-    return isAuthorsComment ? `@thread author ${wasEdited ? '(edited)' : ''}` : '';
+    if (wasEdited) {
+      text += '(edited)'
+    }
+
+    return text.trim();
+  };
+
+  repliedToHandler = () => {
+    const { repliedToHandler, comment: { author: { username } } } = this.props;
+
+    repliedToHandler(username);
   };
 
   render() {
-    const { comment: { text, author: { username } } } = this.props;
+    const { comment: { text, author: { username }, repliedToUser }, userId, classes } = this.props;
     const { isEditing, text: inputText } = this.state;
 
     return (
@@ -72,6 +96,14 @@ export class CommentComponent extends Component {
         </div>
 
         <div className={cx(styles.text, styles.leftShift)}>
+          {!!repliedToUser && !isEditing && (
+            <Chip
+              variant="outlined"
+              className={classes.chip}
+              label={`@${repliedToUser.username}`}
+              color={userId === repliedToUser.userId ? 'secondary' : 'primary'}
+            />
+          )}
           {!isEditing && text}
 
           {isEditing && (
@@ -92,7 +124,7 @@ export class CommentComponent extends Component {
 
         <div className={cx(styles.flexWrapper, styles.leftShift)}>
           <ThreadAuditComponent />
-          <Button color='primary' variant='outlined' size='small'>
+          <Button color='primary' onClick={this.repliedToHandler} variant='outlined' size='small'>
             Reply
           </Button>
         </div>
@@ -101,3 +133,5 @@ export class CommentComponent extends Component {
     );
   }
 }
+
+export const CommentComponent = withStyles(classes)(Comment);

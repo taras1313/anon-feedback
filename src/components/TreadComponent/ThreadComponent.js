@@ -21,208 +21,225 @@ const viewTypes = [PREVIEW, FULL];
 //todo like logic- when to disable, already liked functionality, dislike cancels like etc.
 
 export class ThreadComponent extends Component {
-	constructor(props) {
-		super(props);
-		const { threadView } = props;
+  constructor(props) {
+    super(props);
+    const { threadView } = props;
 
-		this.renderContent = threadView === FULL ? this.renderThread : this.renderPreviewThread;
+    this.renderContent = threadView === FULL ? this.renderThread : this.renderPreviewThread;
 
-		this.state = {
-			editThreadOpen: false
-		};
-	}
+    this.state = {
+      editThreadOpen: false,
+      repliedTo: ''
+    };
+  }
 
-	closeEditThread = () => this.setState({ editThreadOpen: false });
+  onRepliedToReset = () => this.setState({ repliedTo: '' })
 
-	openEditThread = () => {
-		const {
-			actions: { setThreadData },
-			thread: { text, _id, title }
-		} = this.props;
-		setThreadData({ text, _id, title });
+  closeEditThread = () => this.setState({ editThreadOpen: false });
 
-		this.setState({ editThreadOpen: true });
-	};
+  openEditThread = () => {
+    const {
+      actions: { setThreadData },
+      thread: { text, _id, title }
+    } = this.props;
+    setThreadData({ text, _id, title });
 
-	renderPreviewThread = () => {
-		const {
-			thread: {
-				author: { username } = {},
-				answersCount,
-				subscribersCount,
-				dislikesCount,
-				likesCount,
-				createdDate,
-				commentsCount
-			}
-		} = this.props;
+    this.setState({ editThreadOpen: true });
+  };
 
-		return (
-			<Fragment>
-				<div>
-					<ThreadAuthorComponent username={username} />
-					{this.renderThreadHeader()}
-					<ThreadAuditComponent
-						subscribersCount={subscribersCount}
-						dislikesCount={dislikesCount}
-						likesCount={likesCount}
-						likeStatus={this.likeStatus()}
-						createdDate={createdDate}
-					/>
-				</div>
-				<div className={styles.answersCount}>
-					<div className={styles.counterWrapper}>
-						<QuestionAnswerOutlinedIcon />
-						{commentsCount}
-					</div>
-					<span>answer(s)</span>
-				</div>
-			</Fragment>
-		);
-	};
+  renderPreviewThread = () => {
+    const {
+      thread: {
+        author: { username } = {},
+        subscribersCount,
+        dislikesCount,
+        likesCount,
+        createdDate,
+        commentsCount
+      }
+    } = this.props;
 
-	subscriptionHandler = () => {
-		const {
-			actions: { subscribeToThread, unsubscribeFromThread },
-			thread: { _id: threadId },
-			userId
-		} = this.props;
-
-		const isSubscribed = this.isSubscribed();
-		const params = { threadId, userId };
-
-		if (isSubscribed) {
-			unsubscribeFromThread(params);
-		} else {
-			subscribeToThread(params);
-		}
-	};
-
-	isSubscribed = () => {
-		const {
-			thread: { subscribers },
-			userId
-		} = this.props;
-		return !!subscribers.find(user => user.userId === userId);
-	};
-
-	isAuthor = () => {
-		console.log('kavo', this.props);
-		const {
-			thread: {
-				author: { userId: authorId }
-			},
-			userId
-		} = this.props;
-
-		return authorId === userId;
-	};
-
-	findUserInThread = () => {
-		const {
-			userId,
-			thread: { users }
-		} = this.props;
-
-		return users.find(user => user.userId === userId);
-	};
-
-	likeStatus = () => {
-		const {
-			userId,
-			thread: { likesList, dislikesList }
-		} = this.props;
-
-		if (likesList.find(el => el.userId === userId)) return 'liked';
-		if (dislikesList.find(el => el.userId === userId)) return 'disliked';
-		return null;
-	};
-
-	renderThread = () => {
-		const { editThreadOpen } = this.state;
-
-		const {
-			userId,
-			thread: {
-				_id: id,
-				text,
-				subscribersCount,
-				dislikesCount,
-				likesCount,
-				commentsList,
-				author: { userId: threadAuthorId, username: authorName } = {},
-				createdDate
-			},
-			likeThread,
-			dislikeThread,
-			actions: { onCreateComment, onUpdateComment }
-		} = this.props;
-		const subscribed = this.isSubscribed();
-		const { username } = this.findUserInThread() || {};
-
-		return (
-			<div className={styles.threadFullWrapper}>
-				<div className={styles.headingWrapper}>
-					<ThreadAuthorComponent nickName={authorName} />
-					{this.isAuthor() && (
-						<Button onClick={this.openEditThread} color="secondary">
-							Edit
-						</Button>
-					)}
-				</div>
-				<div className={styles.divider} />
-				{this.renderThreadHeader()}
-				<div className={styles.description}>{text}</div>
-				<div className={styles.subsWrapper}>
-					<ThreadAuditComponent
-						createdDate={createdDate}
-						subscribersCount={subscribersCount}
-						dislikesCount={dislikesCount}
-						likesCount={likesCount}
-						dislike={dislikeThread.bind(null, { id, userId })}
-            like={likeThread.bind(null, { id, userId })}
+    return (
+      <Fragment>
+        <div>
+          <ThreadAuthorComponent username={username} />
+          {this.renderThreadHeader()}
+          <ThreadAuditComponent
+            subscribersCount={subscribersCount}
+            dislikesCount={dislikesCount}
+            likesCount={likesCount}
             likeStatus={this.likeStatus()}
+            createdDate={createdDate}
+          />
+        </div>
+        <div className={styles.answersCount}>
+          <div className={styles.counterWrapper}>
+            <QuestionAnswerOutlinedIcon />
+            {commentsCount}
+          </div>
+          <span>answer(s)</span>
+        </div>
+      </Fragment>
+    );
+  };
+
+  subscriptionHandler = () => {
+    const {
+      actions: {
+        subscribeToThread,
+        unsubscribeFromThread
+      },
+      thread: { _id: threadId },
+      userId
+    } = this.props;
+
+    const isSubscribed = this.isSubscribed();
+    const params = { threadId, userId };
+
+    if (isSubscribed) {
+      unsubscribeFromThread(params)
+    } else {
+      subscribeToThread(params);
+    }
+  };
+
+  isSubscribed = () => {
+    const { thread: { subscribers }, userId } = this.props;
+    return !!subscribers.find(user => user.userId === userId);
+  };
+
+  isAuthor = () => {
+    const { thread: { author: { userId: authorId } }, userId } = this.props;
+
+    return authorId === userId;
+  };
+
+  findUserInThread = () => {
+    const { userId, thread: { users } } = this.props;
+
+    return users.find(user => user.userId === userId);
+  };
+
+  likeStatus = () => {
+    const {
+      userId,
+      thread: {
+        likesList,
+        dislikesList
+      }
+    } = this.props;
+
+    if (likesList.find(el => el.userId === userId)) return 'liked';
+    if (dislikesList.find(el => el.userId === userId)) return 'disliked';
+    return null
+  };
+
+  repliedToHandler = (username) => {
+    window.scrollTo(0,document.body.scrollHeight);
+    this.setState({ repliedTo: username });
+  };
+
+  renderThread = () => {
+    const { editThreadOpen, repliedTo } = this.state;
+
+    const {
+      userId,
+      thread: {
+        _id: id,
+        text,
+        subscribersCount,
+        dislikesCount,
+        likesCount,
+        commentsList,
+        createdDate,
+        author: { userId: threadAuthorId, username: authorName } = {}
+      },
+      likeThread,
+      dislikeThread,
+      actions: { onCreateComment, onUpdateComment }
+    } = this.props;
+    const subscribed = this.isSubscribed();
+    const { username } = this.findUserInThread() || {};
+
+    return (
+      <div className={styles.threadFullWrapper}>
+        <div className={styles.headingWrapper}>
+          <ThreadAuthorComponent username={authorName} />
+          {
+            this.isAuthor() && <Button onClick={this.openEditThread} color="secondary">
+              Edit
+            </Button>
+          }
+        </div>
+        <div className={styles.divider} />
+        {this.renderThreadHeader()}
+        <div className={styles.description}>
+          {text}
+        </div>
+        <div className={styles.subsWrapper}>
+          <ThreadAuditComponent
+            createdDate={createdDate}
+            subscribersCount={subscribersCount}
+            dislikesCount={dislikesCount}
+            likesCount={likesCount}
+            likeStatus={this.likeStatus()}
+            dislike={dislikeThread.bind(null, { id, userId })}
+            like={likeThread.bind(null, { id, userId })}
             isClickable
-					/>
+          />
 
-					<Button
-						className={styles.btn}
-						variant="outlined"
-						onClick={this.subscriptionHandler}
-						color={subscribed ? 'secondary' : 'primary'}
-					>
-						{subscribed ? 'Unsubscribe' : 'Subscribe'}
-					</Button>
-				</div>
-				<div className={styles.dividerWrapper}>Total comments ({8})</div>
+          <Button
+            className={styles.btn}
+            variant="outlined"
+            onClick={this.subscriptionHandler}
+            color={subscribed ? 'secondary' : 'primary'}
+          >
+            {subscribed ? 'Unsubscribe' : 'Subscribe'}
+          </Button>
+        </div>
+        <div className={styles.dividerWrapper}>
+          Total comments ({8})
+        </div>
 
-				<div className={styles.comments}>
-					{commentsList.map(el => {
-						return (
-							<CommentComponent
-								onUpdateComment={onUpdateComment}
-								editable={el.author.userId === userId}
-								comment={el}
-								isAuthorsComment={el.author.userId === threadAuthorId}
-							/>
-						);
-					})}
-				</div>
+        <div className={styles.comments}>
+          {commentsList.map(el => {
 
-				<div className={styles.dividerWrapper}>
-					{!!username ? <span className={styles.userHighlight}>{username},</span> : ''} Write your comment
-					here
-				</div>
-				<CreateCommentComponent onCreateComment={onCreateComment} username={username} />
+            return (
+              <CommentComponent
+                userId={userId}
+                onUpdateComment={onUpdateComment}
+                editable={el.author.userId === userId}
+                comment={el}
+                isAuthorsComment={el.author.userId === threadAuthorId}
+                repliedToHandler={this.repliedToHandler}
+              />
+            )
+          })}
+        </div>
 
-				<ManipulateThreadComponent onClose={this.closeEditThread} isOpen={editThreadOpen} action="edit" />
-			</div>
-		);
-	};
+        <div className={styles.dividerWrapper}>
+          {!!username ?
+            <span className={styles.userHighlight}>{username},</span> : ''} Write your comment here
+        </div>
+        <CreateCommentComponent
+          repliedTo={repliedTo}
+          onCreateComment={onCreateComment}
+          username={username}
+          onRepliedToReset={this.onRepliedToReset}
+        />
 
-	renderThreadHeader = () => {
-		const { threadView } = this.props;
-		const { title = 'What to learn SWIFT or GO?', _id: id } = this.props.thread;
+        <ManipulateThreadComponent
+          onClose={this.closeEditThread}
+          isOpen={editThreadOpen}
+          action="edit"
+        />
+      </div>
+    );
+  };
+
+  renderThreadHeader = () => {
+    const { threadView } = this.props;
+    const { title = 'What to learn SWIFT or GO?', _id: id } = this.props.thread;
 
 		return (
 			<NavLink to={`/feed/${id}`}>

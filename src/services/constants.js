@@ -1,5 +1,5 @@
 export const baseUrlDev = 'http://localhost:5000';
-export const baseUrlProd = 'add here url for prod';
+export const baseUrlProd = 'https://cryptic-tundra-52702.herokuapp.com';
 export const pathList = {
   user: {
     base: '/users',

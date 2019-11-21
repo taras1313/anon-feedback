@@ -89,14 +89,16 @@ export const getThreadById = id => dispatch => {
 export const subscribeToThread = (data) => (dispatch) => {
   threadService.subscribeToThread(data).then(res => {
     NotificationManager.info('subscribed to this thread', 'Info');
-    dispatch(setSelectedThread(res))
+    dispatch(setSelectedThread(res.thread))
+    dispatch(setUser(res.user))
   })
 };
 
 export const unsubscribeFromThread = (data) => (dispatch) => {
   threadService.unsubscribeFromThread(data).then(res => {
     NotificationManager.info('unsubscribed from this thread', 'Info');
-    dispatch(setSelectedThread(res))
+    dispatch(setSelectedThread(res.thread))
+    dispatch(setUser(res.user))
   })
 };
 

@@ -115,10 +115,28 @@ export const like = (payload) => (dispatch) => {
   });
 };
 
+export const likeComment = (payload) => (dispatch) => {
+  const { id, userId, commentId } = payload;
+  
+  threadService.likeComment({ id, userId, commentId }).then(data => {
+    NotificationManager.success('You\'ve liked comment', 'Success');
+    dispatch(changeThread({ id, thread: { ...data } }))
+  });
+};
+
 export const dislike = (payload) => (dispatch) => {
   const { id, userId } = payload;
   threadService.dislike({ id, userId }).then(data => {
     NotificationManager.success('You\'ve disliked thread', 'Success');
+    dispatch(changeThread({ id, thread: { ...data } }));
+  });
+};
+
+export const dislikeComment = (payload) => (dispatch) => {
+  const { id, userId, commentId } = payload;
+  
+  threadService.dislikeComment({ id, userId, commentId }).then(data => {
+    NotificationManager.success('You\'ve disliked comment', 'Success');
     dispatch(changeThread({ id, thread: { ...data } }));
   });
 };

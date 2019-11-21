@@ -10,7 +10,9 @@ import {
   onCreateComment,
   onUpdateComment,
   like as likeThread,
-  dislike as dislikeThread
+  dislike as dislikeThread,
+  likeComment,
+  dislikeComment
 } from '../../actions/threadActions';
 
 const mapStateToProps = (
@@ -29,7 +31,9 @@ const mapDispatchToProps = (dispatch) => ({
     onCreateComment,
     onUpdateComment,
     likeThread,
-    dislikeThread
+    dislikeThread,
+    likeComment,
+    dislikeComment
   }, dispatch)
 });
 

@@ -1,31 +1,56 @@
-import React from 'react';
-import './App.css';
-import Counter from './components/Counter/Counter';
-import { connect } from 'react-redux';
-import { increaseCounter, decreaseCounter } from './actions/actions';
+import React, { Component } from 'react';
+import { NotificationContainer } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
-function App(props) {
+import Layout from './components/Layout/Layout';
+
+import { connect } from 'react-redux';
+import { setUser, logOut } from './actions/userActions';
+
+class App extends Component {
+  componentDidMount() {
+    window.gapi.load('auth2', () => {
+      window.gapi.auth2
+        .init({
+          client_id: '232822822071-1q970aukj04j6cv7p5buinsqs5vn0ks2'
+        })
+        .then(console.log);
+    });
+  }
+
+  // isUserLoggedIn = () => !!this.props.user; //42069
+  isUserLoggedIn = () => true;
+
+  render() {
+    const { setUser, logOut } = this.props.actions;
+    const { _id } = this.props.user || {};
+
+
     return (
       <div className="App">
-        <Counter counter={props.counter} increaseCounter={props.actions.increaseCounter} decreaseCounter={props.actions.decreaseCounter} />
+        <Layout isUserLoggedIn={this.isUserLoggedIn()} logOut={logOut} setUser={setUser} userId={_id} />
+        <NotificationContainer />
       </div>
     );
-
+  }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ userReducer: { user } }) => {
   return {
-    counter: state.appReducer.counter
-  }
+    user
+  };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     actions: {
-      increaseCounter: () => dispatch(increaseCounter()),
-      decreaseCounter: () => dispatch(decreaseCounter())
+      setUser: user => dispatch(setUser(user)),
+      logOut: () => dispatch(logOut())
     }
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

@@ -1,0 +1,39 @@
+@import "../../styles/variables";
+
+.threadAuthor {
+  color: $black;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.threadAuthorBox {
+  font-size: 12px;
+  color: $white;
+  display: flex;
+  background: $dark-violet;
+  box-shadow: -5px 5px $gray;
+  justify-content: center;
+  align-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  margin-right: 8px;
+}
+
+.authorInfo {
+  display: flex;
+  align-items: flex-end;
+}
+
+.role {
+  margin-left: 8px;
+  color: $dark-gray;
+  font-size: 13px;
+  font-weight: normal;
+  text-transform: capitalize;
+  font-style: italic;
+}

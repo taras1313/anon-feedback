@@ -1,0 +1,38 @@
+.divider {
+  width: 100%;
+  background: #dcdcdc;
+  height: 1px;
+  margin: 20px 0;
+}
+
+.flexWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comment {
+  padding-top: 16px;
+}
+
+.text {
+  margin: 10px 0;
+  line-height: 22px;
+  font-size: 15px;
+  white-space: pre-line;
+}
+
+.leftShift {
+  padding-left: 26px;
+}
+
+.btnHolder {
+  width: 140px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.chip {
+  margin-left: 6px;
+  height: 26px;
+}

@@ -1,0 +1,39 @@
+.logoWrapper {
+  justify-content: center;
+  display: flex;
+  font-size: 20px;
+  min-width: 250px;
+  height: 100%;
+  line-height: 100%;
+}
+
+.logo {
+  height: 100%;
+}
+
+.verticalDivider {
+  display: inline-block;
+  height: 100%;
+  width: 1px;
+  border-left: 1px solid #363d4a;
+}
+
+.createThreadWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-width: 260px;
+}
+
+.searchWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  background: #4f5a6e;
+  padding: 0 24px;
+}
+
+.link {
+  width: 100%;
+}

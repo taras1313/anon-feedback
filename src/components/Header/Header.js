@@ -15,6 +15,7 @@ import styles from './Header.module.scss';
 
 const useStyles = makeStyles(theme => ({
 	autocomplete: {
+	  border: 'none',
 		input: {
 			color: 'white',
 			padding: '0'

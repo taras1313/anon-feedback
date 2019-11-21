@@ -11,7 +11,6 @@ import { ThreadAuditComponent } from '../ThreadAuditComponent';
 import { ManipulateThreadComponent } from '../ManipulateThreadComponent';
 import { CommentComponent } from '../CommentComponent';
 import { CreateCommentComponent } from '../CreateCommentComponent';
-import Loader from '../Loader/Loader';
 
 const randomize = () => Math.floor(Math.random() * 10);
 const PREVIEW = 'preview';

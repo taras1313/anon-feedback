@@ -1,0 +1,12 @@
+.buttonContainer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	height: 60px;
+	padding: 10px 0px;
+}
+
+.active {
+  color: white !important;
+  background-color: #3f51b5 !important;
+}

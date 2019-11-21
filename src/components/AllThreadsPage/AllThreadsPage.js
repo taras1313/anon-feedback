@@ -26,7 +26,7 @@ const sortOptions = [
 
 export class AllThreadsPage extends React.Component {
 	state = {
-		sortBy: null,
+		sortBy: NEWEST,
 		sortDirection: 'DESC'
 	};
 

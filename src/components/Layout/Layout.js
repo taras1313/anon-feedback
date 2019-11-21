@@ -7,12 +7,12 @@ import Navbar from '../Navbar/Navbar';
 
 import { ThreadViewPage } from '../ThreadViewPage';
 import { AllThreadsPage } from '../AllThreadsPage';
+import { PersonalCabinetPage } from '../PersonalCabinetPage';
 
 import styles from './Layout.module.scss';
 import { userService } from '../../services/index';
 
 const Feed = () => <p>Feed</p>;
-const Cabinet = () => <p>Personal Cabinet</p>;
 
 class LoginPage extends React.Component {
 	loginHandler = () => {
@@ -30,19 +30,19 @@ class LoginPage extends React.Component {
 }
 
 export default function Layout({ isUserLoggedIn, setUser }) {
-	if (!isUserLoggedIn) return <LoginPage setUser={setUser} />;
-	return (
-		<>
-			<Header />
-			<Navbar />
-			<div className={styles.mainWrapper}>
-				<Switch>
-					<Route path="/" exact component={AllThreadsPage} />
-					<Route path="/feed/:id" component={ThreadViewPage} />
-					<Route path="/feed" component={Feed} />
-					<Route path="/cabinet" component={Cabinet} />
-				</Switch>
-			</div>
-		</>
-	);
+  if (!isUserLoggedIn) return <LoginPage setUser={setUser} />;
+  return (
+    <>
+      <Header />
+      <Navbar />
+      <div className={styles.mainWrapper}>
+        <Switch>
+          <Route path="/" exact component={AllThreadsPage} />
+          <Route path="/feed/:id" component={ThreadViewPage} />
+          <Route path="/feed" component={Feed} />
+          <Route path="/cabinet" component={PersonalCabinetPage} />
+        </Switch>
+      </div>
+    </>
+  );
 }

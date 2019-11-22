@@ -11,8 +11,9 @@ import styles from './PersonalCabinetPage.module.scss';
 const SUBSCRIBED = 'SUBSCRIBED';
 const LIKED = 'LIKED';
 const CREATED = 'CREATED';
+const REPLIED = 'REPLIED';
 
-const threadOptions = [SUBSCRIBED, LIKED, CREATED];
+const threadOptions = [SUBSCRIBED, LIKED, CREATED, REPLIED];
 
 export default class PersonalCabinetPage extends Component {
 	state = {
@@ -36,7 +37,7 @@ export default class PersonalCabinetPage extends Component {
 
 	optionChangeHandler = option => {
 		const {
-			user: { createdThreads, subscribedThreads, _id }
+			user: { createdThreads, subscribedThreads, _id, repliedList }
 		} = this.props;
 
 		console.log('subbed threads', subscribedThreads);
@@ -51,6 +52,10 @@ export default class PersonalCabinetPage extends Component {
 				case CREATED:
 					return threadService.getCreated(createdThreads);
 
+				case REPLIED:
+					const repliedArr = repliedList.map(({ threadId }) => threadId);
+					return threadService.getReplied(repliedArr);
+
 				default:
 					break;
 			}
@@ -62,7 +67,7 @@ export default class PersonalCabinetPage extends Component {
 		});
 	};
 
-	isActive = (label) => this.state.option === label;
+	isActive = label => this.state.option === label;
 
 	renderButtons() {
 		return threadOptions.map(label => (

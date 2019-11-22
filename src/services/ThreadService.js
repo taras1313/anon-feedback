@@ -23,6 +23,11 @@ export class ThreadService {
 		return this._adapter.get(`${this._baseUrl}/liked`, { userId }).then(({ data }) => data);
 	};
 
+	getReplied = threadsIds => {
+		console.log()
+		return this._adapter.get(`${this._baseUrl}/replied`, { threadsIds }).then(({ data }) => data);
+	};
+
 	getCreated = createdThreadsIds => {
 		return this._adapter.get(`${this._baseUrl}/created`, { createdThreadsIds }).then(({ data }) => data);
 	};

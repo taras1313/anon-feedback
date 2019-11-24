@@ -11,7 +11,7 @@ import {
 } from 'react-router-dom';
 
 ReactDOM.render(
-  <Router>
+  <Router basename={process.env.PUBLIC_URL}>
     <Provider store={store}>
       <App />
     </Provider>

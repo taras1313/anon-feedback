@@ -127,6 +127,7 @@ export class ThreadComponent extends Component {
         dislikesList
       }
     } = this.props;
+    console.log({likesList,dislikesList, userId}, this.props);
 
     if (likesList.find(el => el.userId === userId)) return 'liked';
     if (dislikesList.find(el => el.userId === userId)) return 'disliked';

@@ -16,6 +16,7 @@ export const ThreadAuditComponent = ({
 	likeStatus,
 	createdDate
 }) => {
+	console.log(likeStatus);
 	return (
 		<div className={styles.threadMetaInfo}>
 			{subscribersCount} subscribers

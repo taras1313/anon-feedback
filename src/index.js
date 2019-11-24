@@ -5,13 +5,16 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import store from './store.js';
+import createHistory from 'history/createBrowserHistory';
 
 import {
   BrowserRouter as Router,
 } from 'react-router-dom';
-
+const history = createHistory({
+  basename: process.env.PUBLIC_URL,
+});
 ReactDOM.render(
-  <Router basename={process.env.PUBLIC_URL}>
+  <Router history={history}>
     <Provider store={store}>
       <App />
     </Provider>

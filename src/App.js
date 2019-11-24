@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { NotificationContainer } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
-
 import Layout from './components/Layout/Layout';
+
+import './App.scss';
 
 import { connect } from 'react-redux';
 import { setUser, logOut } from './actions/userActions';
@@ -18,8 +19,8 @@ class App extends Component {
     });
   }
 
-  // isUserLoggedIn = () => !!this.props.user; //42069
-  isUserLoggedIn = () => true;
+  isUserLoggedIn = () => !!this.props.user; //42069
+  // isUserLoggedIn = () => true;
 
   render() {
     const { setUser, logOut } = this.props.actions;

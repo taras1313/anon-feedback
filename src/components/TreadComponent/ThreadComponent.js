@@ -11,7 +11,6 @@ import { ThreadAuditComponent } from '../ThreadAuditComponent';
 import { ManipulateThreadComponent } from '../ManipulateThreadComponent';
 import { CommentComponent } from '../CommentComponent';
 import { CreateCommentComponent } from '../CreateCommentComponent';
-import Loader from '../Loader/Loader';
 
 const randomize = () => Math.floor(Math.random() * 10);
 const PREVIEW = 'preview';
@@ -128,6 +127,7 @@ export class ThreadComponent extends Component {
         dislikesList
       }
     } = this.props;
+    console.log({likesList,dislikesList, userId}, this.props);
 
     if (likesList.find(el => el.userId === userId)) return 'liked';
     if (dislikesList.find(el => el.userId === userId)) return 'disliked';
@@ -151,11 +151,14 @@ export class ThreadComponent extends Component {
         dislikesCount,
         likesCount,
         commentsList,
+        commentsCount,
         createdDate,
         author: { userId: threadAuthorId, username: authorName } = {}
       },
       likeThread,
       dislikeThread,
+      likeComment,
+      dislikeComment,
       actions: { onCreateComment, onUpdateComment }
     } = this.props;
     const subscribed = this.isSubscribed();
@@ -198,7 +201,7 @@ export class ThreadComponent extends Component {
           </Button>
         </div>
         <div className={styles.dividerWrapper}>
-          Total comments ({8})
+          Total comments ({commentsCount})
         </div>
 
         <div className={styles.comments}>
@@ -206,12 +209,15 @@ export class ThreadComponent extends Component {
 
             return (
               <CommentComponent
+                threadId={id}
                 userId={userId}
                 onUpdateComment={onUpdateComment}
                 editable={el.author.userId === userId}
                 comment={el}
                 isAuthorsComment={el.author.userId === threadAuthorId}
                 repliedToHandler={this.repliedToHandler}
+                likeComment={likeComment}
+                dislikeComment={dislikeComment}
               />
             )
           })}

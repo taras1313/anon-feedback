@@ -11,6 +11,10 @@ import {
   setSelectedThread
 } from '../../actions/threadActions';
 
+import {
+  setUser
+} from '../../actions/userActions';
+
 const mapStateToProps = ({ threadsReducer: { threadData } }) => ({ threadData });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -19,7 +23,8 @@ const mapDispatchToProps = (dispatch) => ({
     resetThreadFields,
     createThread,
     editThread,
-    setSelectedThread
+    setSelectedThread,
+    setUser
   }, dispatch)
 });
 

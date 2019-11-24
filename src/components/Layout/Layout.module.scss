@@ -1,4 +1,103 @@
+.root{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #f6f6f6;
+}
+
+.authPageHeader{
+  flex: 1 0 300px;
+  background-color: #fff;
+  box-shadow: 0 1px 2px 0 rgba(74,74,74,.05), 0 2px 4px 0 rgba(74,74,74,.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome {
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imgWrapper{
+  height: 120px;
+  width: 120px
+}
+
+.imgGoogleWrapper {
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+}
+
+.imgStyles{
+  width: 100%;
+  height: 100%;
+}
+
+.welcomeTitle {
+  margin-top: 48px;
+  font-weight: 600;
+  font-size: 22px;
+  color: #4a4a4a;
+  text-align: center;
+  letter-spacing: 0;
+  width: 300px;
+}
+
+.welcomeHint {
+  text-align: center;
+  margin-top: 16px;
+  margin-bottom: 48px;
+  font-weight: 300;
+  line-height: 24px;
+  font-size: 16px;
+  color: rgba(74,74,74,.54);
+}
+
+.authPageMain {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  min-height: 300px;
+  align-items: center;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 260px;
+}
+
+.button {
+  background-color: #4f5a6e !important;
+  color: #fff !important;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.authPageFooter {
+  display: flex;
+  padding: 20px 24px;
+  border-top: 1px solid rgba(74,74,74,.05);
+  align-items: center;
+  justify-content: center;
+  background: #f6f6f6;
+}
+
+.footerCopyright{
+  color: rgba(74,74,74,.38);
+  font-size: 16px;
+  font-weight: 400;
+}
+
 .mainWrapper {
   margin: 0 0 0 250px;
   padding: 10px 46px 18px 24px;
+  height: calc(100vh - 70px);
 }

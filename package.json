@@ -20,7 +20,8 @@
     "react-scripts": "3.1.2",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
-    "unique-names-generator": "^4.1.1"
+    "unique-names-generator": "^4.1.1",
+    "history": "latest"
   },
   "scripts": {
     "start": "REACT_APP_ENV=development react-scripts start",

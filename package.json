@@ -21,13 +21,16 @@
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
     "unique-names-generator": "^4.1.1",
-    "history": "latest"
+    "history": "latest",
+    "@babel/runtime": "^7.8.4"
   },
   "scripts": {
     "start": "REACT_APP_ENV=development react-scripts start",
     "start:prod": "REACT_APP_ENV=production react-scriptsy start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "jest --config=./.setup/jest.config.js --coverage --collectCoverage=true --detectOpenHandles --forceExit",
+    "test:wc": "jest --config=./.setup/jest.config.js --coverage --collectCoverage=true --watch",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
@@ -48,7 +51,19 @@
     ]
   },
   "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-to-json": "^3.4.4",
     "gh-pages": "^2.1.1",
-    "redux-logger": "^3.0.6"
+    "jest": "^25.2.4",
+    "jest-enzyme": "^7.1.2",
+    "redux-logger": "^3.0.6",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-export-default-from": "^7.5.2",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@babel/plugin-syntax-flow": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "babel-plugin-import": "^1.12.1",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "babel-preset": "^1.1.1"
   }
 }

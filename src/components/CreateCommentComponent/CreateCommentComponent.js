@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -83,9 +83,9 @@ export const CreateCommentComponent = (
   }
 ) => {
   const classes = useStyles();
-  const [isChecked, setIsChecked] = useState(!!username);
-  const [nickName, setNickName] = useState(username);
-  const [commentText, setCommentText] = useState('');
+  const [isChecked, setIsChecked] = React.useState(!!username);
+  const [nickName, setNickName] = React.useState(username);
+  const [commentText, setCommentText] = React.useState('');
 
   const toggleAutoGenerator = () => {
     const config = {
@@ -93,7 +93,7 @@ export const CreateCommentComponent = (
       separator: ' ',
       length: 2,
     };
-
+    
     const value = !isChecked ? uniqueNamesGenerator(config) : '';
 
     setNickName(value);
@@ -175,6 +175,7 @@ export const CreateCommentComponent = (
 
       <div className={classes.controlBtns}>
         <Button
+          data-testid="here"
           variant="outlined"
           onClick={resetCommentFields}
           className={classes.button}

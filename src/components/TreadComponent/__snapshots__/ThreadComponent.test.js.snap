@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Thread Component renders properly with no props 1`] = `
+<div
+  className="wrapper"
+>
+  <div>
+    <ThreadAuthorComponent />
+    <NavLink
+      to="/feed/undefined"
+    >
+      <div
+        className="heading hovered"
+      >
+        What to learn SWIFT or GO?
+      </div>
+    </NavLink>
+    <ThreadAuditComponent
+      likeStatus={null}
+    />
+  </div>
+  <div
+    className="answersCount"
+  >
+    <div
+      className="counterWrapper"
+    >
+      <QuestionAnswerOutlinedIcon />
+    </div>
+    <span>
+      answer(s)
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Thread Component renders properly with no props 2`] = `
+<div
+  className="wrapper"
+>
+  <div
+    className="threadFullWrapper"
+  >
+    <div
+      className="headingWrapper"
+    >
+      <ThreadAuthorComponent />
+      <WithStyles(ForwardRef(Button))
+        color="secondary"
+        data-testid="editThread"
+        onClick={[Function]}
+      >
+        Edit
+      </WithStyles(ForwardRef(Button))>
+    </div>
+    <div
+      className="divider"
+    />
+    <NavLink
+      to="/feed/undefined"
+    >
+      <div
+        className="heading"
+      >
+        What to learn SWIFT or GO?
+      </div>
+    </NavLink>
+    <div
+      className="description"
+    />
+    <div
+      className="subsWrapper"
+    >
+      <ThreadAuditComponent
+        dislike={[Function]}
+        isClickable={true}
+        like={[Function]}
+        likeStatus={null}
+      />
+      <WithStyles(ForwardRef(Button))
+        className="btn"
+        color="primary"
+        data-testid="subscribeButton"
+        onClick={[Function]}
+        variant="outlined"
+      >
+        Subscribe
+      </WithStyles(ForwardRef(Button))>
+    </div>
+    <div
+      className="dividerWrapper"
+    >
+      Total comments (
+      )
+    </div>
+    <div
+      className="comments"
+    />
+    <div
+      className="dividerWrapper"
+    >
+       Write your comment here
+    </div>
+    <CreateCommentComponent
+      onRepliedToReset={[Function]}
+      repliedTo=""
+    />
+    <withRouter(Connect(ManipulateThreadComponent))
+      action="edit"
+      isOpen={false}
+      onClose={[Function]}
+    />
+  </div>
+</div>
+`;

@@ -16,14 +16,14 @@ export const ThreadAuditComponent = ({
 	likeStatus,
 	createdDate
 }) => {
-	console.log(likeStatus);
+
 	return (
 		<div className={styles.threadMetaInfo}>
 			{subscribersCount} subscribers
 			<span className={styles.divider}>-</span>
 			{createdDate}
 			<span className={styles.divider}>-</span>
-			<div onClick={isClickable ? () => like() : null} className={styles.flex}>
+			<div data-testid='like-button' onClick={isClickable ? () => like() : null} className={styles.flex}>
 				<ThumbUpOutlinedIcon
 					className={cx(styles.icon, {
 						[styles.like]: likeStatus === 'liked'
@@ -32,7 +32,7 @@ export const ThreadAuditComponent = ({
 				{likesCount}{' '}
 			</div>
 			<span className={styles.divider}>-</span>
-			<div onClick={isClickable ? () => dislike() : null} className={styles.flex}>
+			<div data-testid='dislike-button' onClick={isClickable ? () => dislike() : null} className={styles.flex}>
 				<ThumbDownOutlinedIcon
 					className={cx(styles.icon, {
 						[styles.dislike]: likeStatus === 'disliked'

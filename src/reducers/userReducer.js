@@ -1,6 +1,6 @@
 import { SET_USER, LOG_OUT } from '../types/userTypes';
 
-const initialState = {
+export const initialState = {
 	user: null
 	// user: {
 	// 	createdThreads: [],
@@ -12,7 +12,7 @@ const initialState = {
 	// }
 };
 
-const userReducer = (state = initialState, action) => {
+export const userReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case SET_USER:
 			return { user: action.user };

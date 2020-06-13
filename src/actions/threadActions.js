@@ -25,7 +25,7 @@ export const createThread = () => (dispatch, getState) => {
 	const thread = new CreateThreadModel({ ...threadData, authorId });
 
   return threadService.createThread(thread).then((data) => {
-    NotificationManager.success('Your thread was created', 'Success');
+    NotificationManager.success('Your thread was created', 'Success ');
     return data;
   });
 };

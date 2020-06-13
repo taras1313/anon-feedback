@@ -19,8 +19,10 @@ module.exports = {
     '^.+\\.(gif|ttf|eot|svg|woff|woff2|ico|png|jpg)$': '<rootDir>/.setup/file.stub.js',
   },
   snapshotSerializers: ['enzyme-to-json/serializer'],
+  setupFiles: ['<rootDir>/.setup/jest.setup.js'],
   collectCoverageFrom: [
     '<rootDir>/src/**/*.js',
+    '!<rootDir>/src/serviceWorker.js',
     '!<rootDir>/src/**/*.container.js',
     '!<rootDir>/src/**/external/**/*.js',
   ],

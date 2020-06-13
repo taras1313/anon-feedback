@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ThreadViewPage snapshot 1`] = `
+<ThreadComponent
+  actions={
+    Object {
+      "getThreadById": [MockFunction] {
+        "calls": Array [
+          Array [
+            "testId",
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": "newTestId",
+          },
+        ],
+      },
+    }
+  }
+  answersCount={9}
+  author={Object {}}
+  dislikeComment={[Function]}
+  dislikeThread={[Function]}
+  dislikesCount={1}
+  likeComment={[Function]}
+  likeThread={[Function]}
+  likesCount={9}
+  match={
+    Object {
+      "params": Object {
+        "id": "testId",
+      },
+    }
+  }
+  subscribersCount={3}
+  thread={Object {}}
+  threadView="full"
+/>
+`;

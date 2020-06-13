@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`threadAuditComponent renders w/o props 1`] = `
+<div
+  className="threadMetaInfo"
+>
+   subscribers
+  <span
+    className="divider"
+  >
+    -
+  </span>
+  <span
+    className="divider"
+  >
+    -
+  </span>
+  <div
+    className="flex"
+    data-testid="like-button"
+    onClick={null}
+  >
+    <ThumbUpIcon
+      className="icon"
+    />
+     
+     
+  </div>
+  <span
+    className="divider"
+  >
+    -
+  </span>
+  <div
+    className="flex"
+    data-testid="dislike-button"
+    onClick={null}
+  >
+    <ThumbDownIcon
+      className="icon"
+    />
+     
+     
+  </div>
+</div>
+`;

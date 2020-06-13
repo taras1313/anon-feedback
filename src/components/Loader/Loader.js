@@ -9,7 +9,7 @@ const Loader = ({ height, width }) => {
 			height: height || '100%',
 			display: 'flex',
 			justifyContent: 'center',
-			alignItems: 'center',
+			alignItems: 'center', 
 			'& > * + *': {
 				margin: 'auto'
 			}

@@ -1,69 +1,71 @@
 {
-  "homepage": "http://taras1313.github.io/anon-feedback",
-  "name": "anon-feedback",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@material-ui/core": "^4.5.0",
-    "@material-ui/icons": "^4.4.3",
-    "@material-ui/lab": "^4.0.0-alpha.32",
-    "axios": "^0.19.0",
-    "classnames": "^2.2.6",
-    "material-ui": "^0.20.2",
-    "node-sass": "^4.12.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.10.1",
-    "react-dom": "^16.10.1",
-    "react-notifications": "^1.4.3",
-    "react-redux": "^7.1.1",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.1.2",
-    "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0",
-    "unique-names-generator": "^4.1.1",
-    "history": "latest",
-    "@babel/runtime": "^7.8.4"
-  },
-  "scripts": {
-    "start": "REACT_APP_ENV=development react-scripts start",
-    "start:prod": "REACT_APP_ENV=production react-scriptsy start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "test:coverage": "jest --config=./.setup/jest.config.js --coverage --collectCoverage=true --detectOpenHandles --forceExit",
-    "test:wc": "jest --config=./.setup/jest.config.js --coverage --collectCoverage=true --watch",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "enzyme": "^3.11.0",
-    "enzyme-to-json": "^3.4.4",
-    "gh-pages": "^2.1.1",
-    "jest": "^25.2.4",
-    "jest-enzyme": "^7.1.2",
-    "redux-logger": "^3.0.6",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/plugin-proposal-export-default-from": "^7.5.2",
-    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
-    "@babel/plugin-syntax-flow": "^7.2.0",
-    "@babel/plugin-transform-runtime": "^7.5.5",
-    "babel-plugin-import": "^1.12.1",
-    "babel-plugin-module-resolver": "^3.2.0",
-    "babel-preset": "^1.1.1"
-  }
+	"homepage": "http://taras1313.github.io/anon-feedback",
+	"name": "anon-feedback",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@babel/runtime": "^7.8.4",
+		"@material-ui/core": "^4.5.0",
+		"@material-ui/icons": "^4.4.3",
+		"@material-ui/lab": "^4.0.0-alpha.32",
+		"axios": "^0.19.0",
+		"classnames": "^2.2.6",
+		"history": "latest",
+		"material-ui": "^0.20.2",
+		"node-sass": "^4.12.0",
+		"prop-types": "^15.7.2",
+		"react": "^16.10.1",
+		"react-dom": "^16.10.1",
+		"react-notifications": "^1.4.3",
+		"react-redux": "^7.1.1",
+		"react-router-dom": "^5.1.2",
+		"react-scripts": "3.1.2",
+		"redux": "^4.0.4",
+		"redux-thunk": "^2.3.0",
+		"unique-names-generator": "^4.1.1"
+	},
+	"scripts": {
+		"start": "REACT_APP_ENV=development react-scripts start",
+		"start:prod": "REACT_APP_ENV=production react-scriptsy start",
+		"build": "react-scripts build",
+		"test": "jest --config=./.setup/jest.config.js",
+		"test:coverage": "jest --config=./.setup/jest.config.js --coverage --collectCoverage=true --detectOpenHandles --forceExit",
+		"test:wc": "jest --config=./.setup/jest.config.js --coverage --collectCoverage=true --watch",
+		"eject": "react-scripts eject",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"@babel/plugin-proposal-class-properties": "^7.5.5",
+		"@babel/plugin-proposal-export-default-from": "^7.5.2",
+		"@babel/plugin-proposal-optional-chaining": "^7.2.0",
+		"@babel/plugin-syntax-flow": "^7.2.0",
+		"@babel/plugin-transform-runtime": "^7.5.5",
+		"babel-plugin-import": "^1.12.1",
+		"babel-plugin-module-resolver": "^3.2.0",
+		"babel-preset": "^1.1.1",
+		"enzyme": "^3.11.0",
+		"enzyme-adapter-react-16": "^1.15.2",
+		"enzyme-to-json": "^3.4.4",
+		"gh-pages": "^2.1.1",
+		"jest": "24.9.0",
+		"jest-enzyme": "^7.1.2",
+		"redux-logger": "^3.0.6",
+		"redux-mock-store": "^1.5.4"
+	}
 }

@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`threadAuditComponent renders w/o props 1`] = `
+<div>
+  <WithStyles(ForwardRef(Dialog))
+    TransitionComponent={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "render": [Function],
+      }
+    }
+    fullWidth={true}
+    maxWidth="md"
+  >
+    <WithStyles(ForwardRef(AppBar))
+      className="makeStyles-appBar-2"
+    >
+      <WithStyles(ForwardRef(Toolbar))>
+        <WithStyles(ForwardRef(IconButton))
+          aria-label="close"
+          color="inherit"
+          edge="start"
+        >
+          <CloseIcon />
+        </WithStyles(ForwardRef(IconButton))>
+        <WithStyles(ForwardRef(Typography))
+          className="makeStyles-title-3"
+          variant="h6"
+        >
+           Thread
+        </WithStyles(ForwardRef(Typography))>
+      </WithStyles(ForwardRef(Toolbar))>
+    </WithStyles(ForwardRef(AppBar))>
+    <div
+      className="makeStyles-container-4"
+    >
+      <WithStyles(ForwardRef(TextField))
+        autoComplete="off"
+        className="makeStyles-textField-5"
+        id="standard-multiline-flexible"
+        label="Thread Title"
+        margin="normal"
+        multiline={true}
+        name="title"
+        onChange={[Function]}
+        required={true}
+        rows="2"
+        variant="outlined"
+      />
+      <WithStyles(ForwardRef(TextField))
+        autoComplete="off"
+        className="makeStyles-textField-5"
+        id="standard-multiline-flexible"
+        label="Thread Description"
+        margin="normal"
+        multiline={true}
+        name="text"
+        onChange={[Function]}
+        required={true}
+        rows="6"
+        variant="outlined"
+      />
+      <div
+        className="makeStyles-controlBtns-9"
+      >
+        <WithStyles(ForwardRef(Button))
+          className="makeStyles-button-10"
+          color="secondary"
+          onClick={[Function]}
+          variant="contained"
+        >
+          Reset
+        </WithStyles(ForwardRef(Button))>
+        <WithStyles(ForwardRef(Button))
+          className="makeStyles-button-10 makeStyles-submitBtn-11"
+          onClick={[Function]}
+          variant="contained"
+        >
+           Thread
+        </WithStyles(ForwardRef(Button))>
+      </div>
+    </div>
+  </WithStyles(ForwardRef(Dialog))>
+</div>
+`;

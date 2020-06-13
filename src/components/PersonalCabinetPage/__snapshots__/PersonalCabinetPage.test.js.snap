@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Personal cabinet page snapshot 1`] = `
+<Fragment>
+  <div
+    className="buttonContainer"
+  >
+    <WithStyles(ForwardRef(ButtonGroup))
+      aria-label="small outlined button group"
+      color="primary"
+      size="small"
+    >
+      <WithStyles(ForwardRef(Button))
+        className="active"
+        key="SUBSCRIBED"
+        name="SUBSCRIBED"
+        onClick={[Function]}
+      >
+        SUBSCRIBED
+      </WithStyles(ForwardRef(Button))>
+      <WithStyles(ForwardRef(Button))
+        className=""
+        key="LIKED"
+        name="LIKED"
+        onClick={[Function]}
+      >
+        LIKED
+      </WithStyles(ForwardRef(Button))>
+      <WithStyles(ForwardRef(Button))
+        className=""
+        key="CREATED"
+        name="CREATED"
+        onClick={[Function]}
+      >
+        CREATED
+      </WithStyles(ForwardRef(Button))>
+      <WithStyles(ForwardRef(Button))
+        className=""
+        key="REPLIED"
+        name="REPLIED"
+        onClick={[Function]}
+      >
+        REPLIED
+      </WithStyles(ForwardRef(Button))>
+    </WithStyles(ForwardRef(ButtonGroup))>
+  </div>
+  <Loader />
+</Fragment>
+`;

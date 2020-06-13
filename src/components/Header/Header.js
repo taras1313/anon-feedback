@@ -1,117 +1,117 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
-import SearchIcon from '@material-ui/icons/Search';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import TextField from '@material-ui/core/TextField';
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Button from "@material-ui/core/Button";
+import SearchIcon from "@material-ui/icons/Search";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import TextField from "@material-ui/core/TextField";
 
-import { ManipulateThreadComponent } from '../ManipulateThreadComponent';
-import { connect } from 'react-redux';
+import { ManipulateThreadComponent } from "../ManipulateThreadComponent";
+import { connect } from "react-redux";
 
-import styles from './Header.module.scss';
+import styles from "./Header.module.scss";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   autocomplete: {
     input: {
-      color: 'white',
-      padding: '0'
+      color: "white",
+      padding: "0",
     },
     inputRoot: {
-      height: '100%',
-      width: 'auto'
+      height: "100%",
+      width: "auto",
     },
     label: {
-      color: 'white'
+      color: "white",
     },
-    '& fieldset': {
-      borderColor: 'transparent'
+    "& fieldset": {
+      borderColor: "transparent",
     },
   },
   header: {
-    backgroundColor: '#424b5f',
-    display: 'flex',
-    flexDirection: 'row',
-    height: '70px',
-    boxShadow: 'none'
+    backgroundColor: "#424b5f",
+    display: "flex",
+    flexDirection: "row",
+    height: "70px",
+    boxShadow: "none",
   },
   headerPlaceholder: {
-    width: '100%',
-    height: '70px'
+    width: "100%",
+    height: "70px",
   },
   input: {
-    width: '100px'
+    width: "100px",
   },
   search: {
-    position: 'relative',
-    borderRadius: '5px',
-    backgroundColor: '#424b5f',
-    width: '100%',
-    height: '44px',
-    alignSelf: 'center',
+    position: "relative",
+    borderRadius: "5px",
+    backgroundColor: "#424b5f",
+    width: "100%",
+    height: "44px",
+    alignSelf: "center",
   },
   inputRoot: {
-    height: '44px',
-    borderColor: 'transparent',
-    '&:hover': {
-      borderColor: 'transparent'
-    }
+    height: "44px",
+    borderColor: "transparent",
+    "&:hover": {
+      borderColor: "transparent",
+    },
   },
   inputInput: {
-    padding: '0',
-    paddingLeft: '50px',
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    height: '100%',
-    '&:focus, &:hover': {
-      backgroundColor: '#3a4357',
-      borderRadius: '5px'
-    }
+    padding: "0",
+    paddingLeft: "50px",
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    height: "100%",
+    "&:focus, &:hover": {
+      backgroundColor: "#3a4357",
+      borderRadius: "5px",
+    },
   },
 
   searchIcon: {
-    width: '48px',
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    zIndex: 1
+    width: "48px",
+    height: "100%",
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: 1,
   },
   textField: {
-    display: 'flex',
-    color: 'white',
-    height: '100%',
-    width: '100%',
-    '& input': {
-      height: '100%',
-      color: 'white',
-      width: 'auto',
-      padding: '0 0 0 40px !important'
+    display: "flex",
+    color: "white",
+    height: "100%",
+    width: "100%",
+    "& input": {
+      height: "100%",
+      color: "white",
+      width: "auto",
+      padding: "0 0 0 40px !important",
     },
-    '& label': {
-      color: 'white'
-    }
+    "& label": {
+      color: "white",
+    },
   },
   labelRoot: {
-    color: 'white'
+    color: "white",
   },
   createThreadButton: {
-    backgroundColor: '#65c178',
-    fontSize: '0.7rem',
-    fontWeight: 'bold',
-    color: 'white',
-    '&:hover': {
-      backgroundColor: '#159776'
+    backgroundColor: "#65c178",
+    fontSize: "0.7rem",
+    fontWeight: "bold",
+    color: "white",
+    "&:hover": {
+      backgroundColor: "#159776",
     },
-    width: '150px',
-    height: '36px'
-  }
+    width: "150px",
+    height: "36px",
+  },
 }));
 
-const SearchBar = ({ threads, ...props }) => {
+export const SearchBar = ({ threads, ...props }) => {
   const classes = useStyles();
   const history = useHistory();
 
@@ -123,29 +123,30 @@ const SearchBar = ({ threads, ...props }) => {
         </div>
         <Autocomplete
           className={classes.autocomplete}
+          id="thread-search"
           freeSolo
-          onChange={(e, thread) => thread && history.push(`/feed/${thread._id}`)}
+          onChange={(e, thread) =>
+            thread && history.push(`/feed/${thread._id}`)
+          }
           classes={{
-            inputRoot: classes.inputRoot
+            inputRoot: classes.inputRoot,
           }}
           autoSelect
           options={threads}
-          getOptionLabel={option => option.title}
-          renderInput={params => (
+          getOptionLabel={(option) => option.title}
+          renderInput={(params) => (
             <TextField
               {...params}
               margin="none"
               variant="outlined"
               classes={{
-                root: classes.textField
+                root: classes.textField,
               }}
               // fullWidth
             />
           )}
-          renderOption={option => (
-            <div className={styles.link}>
-              {option.title}
-            </div>
+          renderOption={(option) => (
+            <div className={styles.link}>{option.title}</div>
           )}
         />
       </div>
@@ -153,9 +154,9 @@ const SearchBar = ({ threads, ...props }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    threads: state.threadsReducer.threads
+    threads: state.threadsReducer.threads,
   };
 };
 
@@ -181,12 +182,20 @@ export default function ButtonAppBar(props) {
         </div>
         <ConnectedSearchBar history={props.history} />
         <div className={styles.createThreadWrapper}>
-          <Button variant="contained" onClick={openCreateThread} className={classes.createThreadButton}>
+          <Button
+            variant="contained"
+            onClick={openCreateThread}
+            className={classes.createThreadButton}
+          >
             create thread
           </Button>
         </div>
       </AppBar>
-      <ManipulateThreadComponent onClose={closeCreateThread} isOpen={createThreadOpen} action="create" />
+      <ManipulateThreadComponent
+        onClose={closeCreateThread}
+        isOpen={createThreadOpen}
+        action="create"
+      />
 
       <div className={classes.headerPlaceholder} />
     </>

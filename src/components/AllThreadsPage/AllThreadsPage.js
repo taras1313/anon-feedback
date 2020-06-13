@@ -7,9 +7,7 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import WhatshotIcon from '@material-ui/icons/Whatshot';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import ScheduleIcon from '@material-ui/icons/Schedule';
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import ScheduleIcon from '@material-ui/icons/Schedule'; 
 
 import styles from './AllThreadsPage.module.scss';
 

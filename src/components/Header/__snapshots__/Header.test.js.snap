@@ -1,0 +1,827 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component Search bar snapshot 1`] = `
+<BrowserRouter
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "canGo": [Function],
+      "createHref": [Function],
+      "entries": Array [
+        Object {
+          "hash": "",
+          "key": "vgd0xo",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+      ],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "index": 0,
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "key": "vgd0xo",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <SearchBar>
+      <div
+        className="searchWrapper"
+      >
+        <div
+          className="makeStyles-search-5"
+        >
+          <div
+            className="makeStyles-searchIcon-8"
+          >
+            <ForwardRef>
+              <WithStyles(ForwardRef(SvgIcon))>
+                <ForwardRef(SvgIcon)
+                  classes={
+                    Object {
+                      "colorAction": "MuiSvgIcon-colorAction",
+                      "colorDisabled": "MuiSvgIcon-colorDisabled",
+                      "colorError": "MuiSvgIcon-colorError",
+                      "colorPrimary": "MuiSvgIcon-colorPrimary",
+                      "colorSecondary": "MuiSvgIcon-colorSecondary",
+                      "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                      "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                      "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                      "root": "MuiSvgIcon-root",
+                    }
+                  }
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="MuiSvgIcon-root"
+                    focusable="false"
+                    role="presentation"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                    />
+                  </svg>
+                </ForwardRef(SvgIcon)>
+              </WithStyles(ForwardRef(SvgIcon))>
+            </ForwardRef>
+          </div>
+          <WithStyles(ForwardRef(Autocomplete))
+            autoSelect={true}
+            className="makeStyles-autocomplete-1"
+            classes={
+              Object {
+                "inputRoot": "makeStyles-inputRoot-6",
+              }
+            }
+            freeSolo={true}
+            getOptionLabel={[Function]}
+            id="thread-search"
+            onChange={[Function]}
+            renderInput={[Function]}
+            renderOption={[Function]}
+          >
+            <ForwardRef(Autocomplete)
+              autoSelect={true}
+              className="makeStyles-autocomplete-1"
+              classes={
+                Object {
+                  "clearIndicator": "MuiAutocomplete-clearIndicator",
+                  "clearIndicatorDirty": "MuiAutocomplete-clearIndicatorDirty",
+                  "focused": "Mui-focused",
+                  "groupLabel": "MuiAutocomplete-groupLabel",
+                  "groupUl": "MuiAutocomplete-groupUl",
+                  "input": "MuiAutocomplete-input",
+                  "inputFocused": "MuiAutocomplete-inputFocused",
+                  "inputRoot": "MuiAutocomplete-inputRoot makeStyles-inputRoot-6",
+                  "listbox": "MuiAutocomplete-listbox",
+                  "loading": "MuiAutocomplete-loading",
+                  "noOptions": "MuiAutocomplete-noOptions",
+                  "option": "MuiAutocomplete-option",
+                  "paper": "MuiAutocomplete-paper",
+                  "popper": "MuiAutocomplete-popper",
+                  "popperDisablePortal": "MuiAutocomplete-popperDisablePortal",
+                  "popupIndicator": "MuiAutocomplete-popupIndicator",
+                  "popupIndicatorOpen": "MuiAutocomplete-popupIndicatorOpen",
+                  "root": "MuiAutocomplete-root",
+                  "tag": "MuiAutocomplete-tag",
+                }
+              }
+              freeSolo={true}
+              getOptionLabel={[Function]}
+              id="thread-search"
+              onChange={[Function]}
+              renderInput={[Function]}
+              renderOption={[Function]}
+            >
+              <div
+                aria-expanded={false}
+                aria-owns={null}
+                className="MuiAutocomplete-root makeStyles-autocomplete-1"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                role="combobox"
+              >
+                <WithStyles(ForwardRef(TextField))
+                  InputLabelProps={
+                    Object {
+                      "htmlFor": "thread-search",
+                      "id": "thread-search-label",
+                    }
+                  }
+                  InputProps={
+                    Object {
+                      "className": "MuiAutocomplete-inputRoot makeStyles-inputRoot-6",
+                      "endAdornment": <React.Fragment>
+                        <ForwardRef(WithStyles)
+                          aria-label="Clear"
+                          className="MuiAutocomplete-clearIndicator"
+                          onClick={[Function]}
+                          tabIndex={-1}
+                          title="Clear"
+                        >
+                          <Memo(CloseIcon)
+                            fontSize="small"
+                          />
+                        </ForwardRef(WithStyles)>
+                      </React.Fragment>,
+                      "ref": [Function],
+                      "startAdornment": undefined,
+                    }
+                  }
+                  classes={
+                    Object {
+                      "root": "makeStyles-textField-9",
+                    }
+                  }
+                  disabled={false}
+                  id="thread-search"
+                  inputProps={
+                    Object {
+                      "aria-activedescendant": null,
+                      "aria-autocomplete": "list",
+                      "aria-controls": null,
+                      "autoCapitalize": "none",
+                      "autoComplete": "disabled",
+                      "className": "MuiAutocomplete-input MuiAutocomplete-inputFocused",
+                      "disabled": false,
+                      "id": "thread-search",
+                      "onBlur": [Function],
+                      "onChange": [Function],
+                      "onFocus": [Function],
+                      "onMouseDown": [Function],
+                      "ref": Object {
+                        "current": <input
+                          aria-autocomplete="list"
+                          aria-invalid="false"
+                          autocapitalize="none"
+                          autocomplete="disabled"
+                          class="MuiInputBase-input MuiOutlinedInput-input MuiAutocomplete-input MuiAutocomplete-inputFocused MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                          id="thread-search"
+                          spellcheck="false"
+                          type="text"
+                          value=""
+                        />,
+                      },
+                      "spellCheck": "false",
+                      "value": "",
+                    }
+                  }
+                  margin="none"
+                  variant="outlined"
+                >
+                  <ForwardRef(TextField)
+                    InputLabelProps={
+                      Object {
+                        "htmlFor": "thread-search",
+                        "id": "thread-search-label",
+                      }
+                    }
+                    InputProps={
+                      Object {
+                        "className": "MuiAutocomplete-inputRoot makeStyles-inputRoot-6",
+                        "endAdornment": <React.Fragment>
+                          <ForwardRef(WithStyles)
+                            aria-label="Clear"
+                            className="MuiAutocomplete-clearIndicator"
+                            onClick={[Function]}
+                            tabIndex={-1}
+                            title="Clear"
+                          >
+                            <Memo(CloseIcon)
+                              fontSize="small"
+                            />
+                          </ForwardRef(WithStyles)>
+                        </React.Fragment>,
+                        "ref": [Function],
+                        "startAdornment": undefined,
+                      }
+                    }
+                    classes={
+                      Object {
+                        "root": "MuiTextField-root makeStyles-textField-9",
+                      }
+                    }
+                    disabled={false}
+                    id="thread-search"
+                    inputProps={
+                      Object {
+                        "aria-activedescendant": null,
+                        "aria-autocomplete": "list",
+                        "aria-controls": null,
+                        "autoCapitalize": "none",
+                        "autoComplete": "disabled",
+                        "className": "MuiAutocomplete-input MuiAutocomplete-inputFocused",
+                        "disabled": false,
+                        "id": "thread-search",
+                        "onBlur": [Function],
+                        "onChange": [Function],
+                        "onFocus": [Function],
+                        "onMouseDown": [Function],
+                        "ref": Object {
+                          "current": <input
+                            aria-autocomplete="list"
+                            aria-invalid="false"
+                            autocapitalize="none"
+                            autocomplete="disabled"
+                            class="MuiInputBase-input MuiOutlinedInput-input MuiAutocomplete-input MuiAutocomplete-inputFocused MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                            id="thread-search"
+                            spellcheck="false"
+                            type="text"
+                            value=""
+                          />,
+                        },
+                        "spellCheck": "false",
+                        "value": "",
+                      }
+                    }
+                    margin="none"
+                    variant="outlined"
+                  >
+                    <WithStyles(ForwardRef(FormControl))
+                      className="MuiTextField-root makeStyles-textField-9"
+                      disabled={false}
+                      margin="none"
+                      required={false}
+                      variant="outlined"
+                    >
+                      <ForwardRef(FormControl)
+                        className="MuiTextField-root makeStyles-textField-9"
+                        classes={
+                          Object {
+                            "fullWidth": "MuiFormControl-fullWidth",
+                            "marginDense": "MuiFormControl-marginDense",
+                            "marginNormal": "MuiFormControl-marginNormal",
+                            "root": "MuiFormControl-root",
+                          }
+                        }
+                        disabled={false}
+                        margin="none"
+                        required={false}
+                        variant="outlined"
+                      >
+                        <div
+                          className="MuiFormControl-root MuiTextField-root makeStyles-textField-9"
+                        >
+                          <WithStyles(ForwardRef(OutlinedInput))
+                            className="MuiAutocomplete-inputRoot makeStyles-inputRoot-6"
+                            endAdornment={
+                              <React.Fragment>
+                                <ForwardRef(WithStyles)
+                                  aria-label="Clear"
+                                  className="MuiAutocomplete-clearIndicator"
+                                  onClick={[Function]}
+                                  tabIndex={-1}
+                                  title="Clear"
+                                >
+                                  <Memo(CloseIcon)
+                                    fontSize="small"
+                                  />
+                                </ForwardRef(WithStyles)>
+                              </React.Fragment>
+                            }
+                            id="thread-search"
+                            inputProps={
+                              Object {
+                                "aria-activedescendant": null,
+                                "aria-autocomplete": "list",
+                                "aria-controls": null,
+                                "autoCapitalize": "none",
+                                "autoComplete": "disabled",
+                                "className": "MuiAutocomplete-input MuiAutocomplete-inputFocused",
+                                "disabled": false,
+                                "id": "thread-search",
+                                "onBlur": [Function],
+                                "onChange": [Function],
+                                "onFocus": [Function],
+                                "onMouseDown": [Function],
+                                "ref": Object {
+                                  "current": <input
+                                    aria-autocomplete="list"
+                                    aria-invalid="false"
+                                    autocapitalize="none"
+                                    autocomplete="disabled"
+                                    class="MuiInputBase-input MuiOutlinedInput-input MuiAutocomplete-input MuiAutocomplete-inputFocused MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                                    id="thread-search"
+                                    spellcheck="false"
+                                    type="text"
+                                    value=""
+                                  />,
+                                },
+                                "spellCheck": "false",
+                                "value": "",
+                              }
+                            }
+                            labelWidth={0}
+                          >
+                            <ForwardRef(OutlinedInput)
+                              className="MuiAutocomplete-inputRoot makeStyles-inputRoot-6"
+                              classes={
+                                Object {
+                                  "adornedEnd": "MuiOutlinedInput-adornedEnd",
+                                  "adornedStart": "MuiOutlinedInput-adornedStart",
+                                  "disabled": "Mui-disabled",
+                                  "error": "Mui-error",
+                                  "focused": "Mui-focused",
+                                  "input": "MuiOutlinedInput-input",
+                                  "inputAdornedEnd": "MuiOutlinedInput-inputAdornedEnd",
+                                  "inputAdornedStart": "MuiOutlinedInput-inputAdornedStart",
+                                  "inputMarginDense": "MuiOutlinedInput-inputMarginDense",
+                                  "inputMultiline": "MuiOutlinedInput-inputMultiline",
+                                  "inputSelect": "MuiOutlinedInput-inputSelect",
+                                  "marginDense": "MuiOutlinedInput-marginDense",
+                                  "multiline": "MuiOutlinedInput-multiline",
+                                  "notchedOutline": "MuiOutlinedInput-notchedOutline",
+                                  "root": "MuiOutlinedInput-root",
+                                }
+                              }
+                              endAdornment={
+                                <React.Fragment>
+                                  <ForwardRef(WithStyles)
+                                    aria-label="Clear"
+                                    className="MuiAutocomplete-clearIndicator"
+                                    onClick={[Function]}
+                                    tabIndex={-1}
+                                    title="Clear"
+                                  >
+                                    <Memo(CloseIcon)
+                                      fontSize="small"
+                                    />
+                                  </ForwardRef(WithStyles)>
+                                </React.Fragment>
+                              }
+                              id="thread-search"
+                              inputProps={
+                                Object {
+                                  "aria-activedescendant": null,
+                                  "aria-autocomplete": "list",
+                                  "aria-controls": null,
+                                  "autoCapitalize": "none",
+                                  "autoComplete": "disabled",
+                                  "className": "MuiAutocomplete-input MuiAutocomplete-inputFocused",
+                                  "disabled": false,
+                                  "id": "thread-search",
+                                  "onBlur": [Function],
+                                  "onChange": [Function],
+                                  "onFocus": [Function],
+                                  "onMouseDown": [Function],
+                                  "ref": Object {
+                                    "current": <input
+                                      aria-autocomplete="list"
+                                      aria-invalid="false"
+                                      autocapitalize="none"
+                                      autocomplete="disabled"
+                                      class="MuiInputBase-input MuiOutlinedInput-input MuiAutocomplete-input MuiAutocomplete-inputFocused MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                                      id="thread-search"
+                                      spellcheck="false"
+                                      type="text"
+                                      value=""
+                                    />,
+                                  },
+                                  "spellCheck": "false",
+                                  "value": "",
+                                }
+                              }
+                              labelWidth={0}
+                            >
+                              <WithStyles(ForwardRef(InputBase))
+                                className="MuiAutocomplete-inputRoot makeStyles-inputRoot-6"
+                                classes={
+                                  Object {
+                                    "adornedEnd": "MuiOutlinedInput-adornedEnd",
+                                    "adornedStart": "MuiOutlinedInput-adornedStart",
+                                    "disabled": "Mui-disabled",
+                                    "error": "Mui-error",
+                                    "focused": "Mui-focused",
+                                    "input": "MuiOutlinedInput-input",
+                                    "inputAdornedEnd": "MuiOutlinedInput-inputAdornedEnd",
+                                    "inputAdornedStart": "MuiOutlinedInput-inputAdornedStart",
+                                    "inputMarginDense": "MuiOutlinedInput-inputMarginDense",
+                                    "inputMultiline": "MuiOutlinedInput-inputMultiline",
+                                    "inputSelect": "MuiOutlinedInput-inputSelect",
+                                    "marginDense": "MuiOutlinedInput-marginDense",
+                                    "multiline": "MuiOutlinedInput-multiline",
+                                    "notchedOutline": null,
+                                    "root": "MuiOutlinedInput-root",
+                                  }
+                                }
+                                endAdornment={
+                                  <React.Fragment>
+                                    <ForwardRef(WithStyles)
+                                      aria-label="Clear"
+                                      className="MuiAutocomplete-clearIndicator"
+                                      onClick={[Function]}
+                                      tabIndex={-1}
+                                      title="Clear"
+                                    >
+                                      <Memo(CloseIcon)
+                                        fontSize="small"
+                                      />
+                                    </ForwardRef(WithStyles)>
+                                  </React.Fragment>
+                                }
+                                fullWidth={false}
+                                id="thread-search"
+                                inputComponent="input"
+                                inputProps={
+                                  Object {
+                                    "aria-activedescendant": null,
+                                    "aria-autocomplete": "list",
+                                    "aria-controls": null,
+                                    "autoCapitalize": "none",
+                                    "autoComplete": "disabled",
+                                    "className": "MuiAutocomplete-input MuiAutocomplete-inputFocused",
+                                    "disabled": false,
+                                    "id": "thread-search",
+                                    "onBlur": [Function],
+                                    "onChange": [Function],
+                                    "onFocus": [Function],
+                                    "onMouseDown": [Function],
+                                    "ref": Object {
+                                      "current": <input
+                                        aria-autocomplete="list"
+                                        aria-invalid="false"
+                                        autocapitalize="none"
+                                        autocomplete="disabled"
+                                        class="MuiInputBase-input MuiOutlinedInput-input MuiAutocomplete-input MuiAutocomplete-inputFocused MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                                        id="thread-search"
+                                        spellcheck="false"
+                                        type="text"
+                                        value=""
+                                      />,
+                                    },
+                                    "spellCheck": "false",
+                                    "value": "",
+                                  }
+                                }
+                                multiline={false}
+                                renderSuffix={[Function]}
+                                type="text"
+                              >
+                                <ForwardRef(InputBase)
+                                  className="MuiAutocomplete-inputRoot makeStyles-inputRoot-6"
+                                  classes={
+                                    Object {
+                                      "adornedEnd": "MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd",
+                                      "adornedStart": "MuiInputBase-adornedStart MuiOutlinedInput-adornedStart",
+                                      "disabled": "Mui-disabled Mui-disabled",
+                                      "error": "Mui-error Mui-error",
+                                      "focused": "Mui-focused Mui-focused",
+                                      "formControl": "MuiInputBase-formControl",
+                                      "fullWidth": "MuiInputBase-fullWidth",
+                                      "input": "MuiInputBase-input MuiOutlinedInput-input",
+                                      "inputAdornedEnd": "MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd",
+                                      "inputAdornedStart": "MuiInputBase-inputAdornedStart MuiOutlinedInput-inputAdornedStart",
+                                      "inputHiddenLabel": "MuiInputBase-inputHiddenLabel",
+                                      "inputMarginDense": "MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense",
+                                      "inputMultiline": "MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline",
+                                      "inputSelect": "MuiInputBase-inputSelect MuiOutlinedInput-inputSelect",
+                                      "inputTypeSearch": "MuiInputBase-inputTypeSearch",
+                                      "marginDense": "MuiInputBase-marginDense MuiOutlinedInput-marginDense",
+                                      "multiline": "MuiInputBase-multiline MuiOutlinedInput-multiline",
+                                      "root": "MuiInputBase-root MuiOutlinedInput-root",
+                                    }
+                                  }
+                                  endAdornment={
+                                    <React.Fragment>
+                                      <ForwardRef(WithStyles)
+                                        aria-label="Clear"
+                                        className="MuiAutocomplete-clearIndicator"
+                                        onClick={[Function]}
+                                        tabIndex={-1}
+                                        title="Clear"
+                                      >
+                                        <Memo(CloseIcon)
+                                          fontSize="small"
+                                        />
+                                      </ForwardRef(WithStyles)>
+                                    </React.Fragment>
+                                  }
+                                  fullWidth={false}
+                                  id="thread-search"
+                                  inputComponent="input"
+                                  inputProps={
+                                    Object {
+                                      "aria-activedescendant": null,
+                                      "aria-autocomplete": "list",
+                                      "aria-controls": null,
+                                      "autoCapitalize": "none",
+                                      "autoComplete": "disabled",
+                                      "className": "MuiAutocomplete-input MuiAutocomplete-inputFocused",
+                                      "disabled": false,
+                                      "id": "thread-search",
+                                      "onBlur": [Function],
+                                      "onChange": [Function],
+                                      "onFocus": [Function],
+                                      "onMouseDown": [Function],
+                                      "ref": Object {
+                                        "current": <input
+                                          aria-autocomplete="list"
+                                          aria-invalid="false"
+                                          autocapitalize="none"
+                                          autocomplete="disabled"
+                                          class="MuiInputBase-input MuiOutlinedInput-input MuiAutocomplete-input MuiAutocomplete-inputFocused MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                                          id="thread-search"
+                                          spellcheck="false"
+                                          type="text"
+                                          value=""
+                                        />,
+                                      },
+                                      "spellCheck": "false",
+                                      "value": "",
+                                    }
+                                  }
+                                  multiline={false}
+                                  renderSuffix={[Function]}
+                                  type="text"
+                                >
+                                  <div
+                                    className="MuiInputBase-root MuiOutlinedInput-root MuiAutocomplete-inputRoot makeStyles-inputRoot-6 MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+                                    onClick={[Function]}
+                                  >
+                                    <input
+                                      aria-activedescendant={null}
+                                      aria-autocomplete="list"
+                                      aria-controls={null}
+                                      aria-invalid={false}
+                                      autoCapitalize="none"
+                                      autoComplete="disabled"
+                                      className="MuiInputBase-input MuiOutlinedInput-input MuiAutocomplete-input MuiAutocomplete-inputFocused MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                                      disabled={false}
+                                      id="thread-search"
+                                      onAnimationStart={[Function]}
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      onFocus={[Function]}
+                                      onMouseDown={[Function]}
+                                      required={false}
+                                      spellCheck="false"
+                                      type="text"
+                                      value=""
+                                    />
+                                    <WithStyles(ForwardRef(IconButton))
+                                      aria-label="Clear"
+                                      className="MuiAutocomplete-clearIndicator"
+                                      onClick={[Function]}
+                                      tabIndex={-1}
+                                      title="Clear"
+                                    >
+                                      <ForwardRef(IconButton)
+                                        aria-label="Clear"
+                                        className="MuiAutocomplete-clearIndicator"
+                                        classes={
+                                          Object {
+                                            "colorInherit": "MuiIconButton-colorInherit",
+                                            "colorPrimary": "MuiIconButton-colorPrimary",
+                                            "colorSecondary": "MuiIconButton-colorSecondary",
+                                            "disabled": "Mui-disabled",
+                                            "edgeEnd": "MuiIconButton-edgeEnd",
+                                            "edgeStart": "MuiIconButton-edgeStart",
+                                            "label": "MuiIconButton-label",
+                                            "root": "MuiIconButton-root",
+                                            "sizeSmall": "MuiIconButton-sizeSmall",
+                                          }
+                                        }
+                                        onClick={[Function]}
+                                        tabIndex={-1}
+                                        title="Clear"
+                                      >
+                                        <WithStyles(ForwardRef(ButtonBase))
+                                          aria-label="Clear"
+                                          centerRipple={true}
+                                          className="MuiIconButton-root MuiAutocomplete-clearIndicator"
+                                          disabled={false}
+                                          focusRipple={true}
+                                          onClick={[Function]}
+                                          tabIndex={-1}
+                                          title="Clear"
+                                        >
+                                          <ForwardRef(ButtonBase)
+                                            aria-label="Clear"
+                                            centerRipple={true}
+                                            className="MuiIconButton-root MuiAutocomplete-clearIndicator"
+                                            classes={
+                                              Object {
+                                                "disabled": "Mui-disabled",
+                                                "focusVisible": "Mui-focusVisible",
+                                                "root": "MuiButtonBase-root",
+                                              }
+                                            }
+                                            disabled={false}
+                                            focusRipple={true}
+                                            onClick={[Function]}
+                                            tabIndex={-1}
+                                            title="Clear"
+                                          >
+                                            <button
+                                              aria-label="Clear"
+                                              className="MuiButtonBase-root MuiIconButton-root MuiAutocomplete-clearIndicator"
+                                              disabled={false}
+                                              onBlur={[Function]}
+                                              onClick={[Function]}
+                                              onDragLeave={[Function]}
+                                              onFocus={[Function]}
+                                              onKeyDown={[Function]}
+                                              onKeyUp={[Function]}
+                                              onMouseDown={[Function]}
+                                              onMouseLeave={[Function]}
+                                              onMouseUp={[Function]}
+                                              onTouchEnd={[Function]}
+                                              onTouchMove={[Function]}
+                                              onTouchStart={[Function]}
+                                              tabIndex={-1}
+                                              title="Clear"
+                                              type="button"
+                                            >
+                                              <span
+                                                className="MuiIconButton-label"
+                                              >
+                                                <ForwardRef
+                                                  fontSize="small"
+                                                >
+                                                  <WithStyles(ForwardRef(SvgIcon))
+                                                    fontSize="small"
+                                                  >
+                                                    <ForwardRef(SvgIcon)
+                                                      classes={
+                                                        Object {
+                                                          "colorAction": "MuiSvgIcon-colorAction",
+                                                          "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                                          "colorError": "MuiSvgIcon-colorError",
+                                                          "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                                          "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                                          "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                                          "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                                          "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                                          "root": "MuiSvgIcon-root",
+                                                        }
+                                                      }
+                                                      fontSize="small"
+                                                    >
+                                                      <svg
+                                                        aria-hidden="true"
+                                                        className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                                                        focusable="false"
+                                                        role="presentation"
+                                                        viewBox="0 0 24 24"
+                                                      >
+                                                        <path
+                                                          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                                                        />
+                                                      </svg>
+                                                    </ForwardRef(SvgIcon)>
+                                                  </WithStyles(ForwardRef(SvgIcon))>
+                                                </ForwardRef>
+                                              </span>
+                                              <NoSsr>
+                                                <WithStyles(undefined)
+                                                  center={true}
+                                                >
+                                                  <ForwardRef(TouchRipple)
+                                                    center={true}
+                                                    classes={
+                                                      Object {
+                                                        "child": "MuiTouchRipple-child",
+                                                        "childLeaving": "MuiTouchRipple-childLeaving",
+                                                        "childPulsate": "MuiTouchRipple-childPulsate",
+                                                        "ripple": "MuiTouchRipple-ripple",
+                                                        "ripplePulsate": "MuiTouchRipple-ripplePulsate",
+                                                        "rippleVisible": "MuiTouchRipple-rippleVisible",
+                                                        "root": "MuiTouchRipple-root",
+                                                      }
+                                                    }
+                                                  >
+                                                    <span
+                                                      className="MuiTouchRipple-root"
+                                                    >
+                                                      <TransitionGroup
+                                                        childFactory={[Function]}
+                                                        component={null}
+                                                        exit={true}
+                                                      />
+                                                    </span>
+                                                  </ForwardRef(TouchRipple)>
+                                                </WithStyles(undefined)>
+                                              </NoSsr>
+                                            </button>
+                                          </ForwardRef(ButtonBase)>
+                                        </WithStyles(ForwardRef(ButtonBase))>
+                                      </ForwardRef(IconButton)>
+                                    </WithStyles(ForwardRef(IconButton))>
+                                    <WithStyles(ForwardRef(NotchedOutline))
+                                      className="MuiOutlinedInput-notchedOutline"
+                                      labelWidth={0}
+                                      notched={false}
+                                    >
+                                      <ForwardRef(NotchedOutline)
+                                        className="MuiOutlinedInput-notchedOutline"
+                                        classes={
+                                          Object {
+                                            "legend": "PrivateNotchedOutline-legend-93",
+                                            "root": "PrivateNotchedOutline-root-92",
+                                          }
+                                        }
+                                        labelWidth={0}
+                                        notched={false}
+                                      >
+                                        <fieldset
+                                          aria-hidden={true}
+                                          className="PrivateNotchedOutline-root-92 MuiOutlinedInput-notchedOutline"
+                                          style={
+                                            Object {
+                                              "paddingLeft": 8,
+                                            }
+                                          }
+                                        >
+                                          <legend
+                                            className="PrivateNotchedOutline-legend-93"
+                                            style={
+                                              Object {
+                                                "width": 0.01,
+                                              }
+                                            }
+                                          >
+                                            <span
+                                              dangerouslySetInnerHTML={
+                                                Object {
+                                                  "__html": "&#8203;",
+                                                }
+                                              }
+                                            />
+                                          </legend>
+                                        </fieldset>
+                                      </ForwardRef(NotchedOutline)>
+                                    </WithStyles(ForwardRef(NotchedOutline))>
+                                  </div>
+                                </ForwardRef(InputBase)>
+                              </WithStyles(ForwardRef(InputBase))>
+                            </ForwardRef(OutlinedInput)>
+                          </WithStyles(ForwardRef(OutlinedInput))>
+                        </div>
+                      </ForwardRef(FormControl)>
+                    </WithStyles(ForwardRef(FormControl))>
+                  </ForwardRef(TextField)>
+                </WithStyles(ForwardRef(TextField))>
+              </div>
+            </ForwardRef(Autocomplete)>
+          </WithStyles(ForwardRef(Autocomplete))>
+        </div>
+      </div>
+    </SearchBar>
+  </Router>
+</BrowserRouter>
+`;

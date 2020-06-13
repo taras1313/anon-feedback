@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`comment component snapshot 1`] = `
+<div
+  className="comment"
+>
+  <div
+    className="flexWrapper"
+  >
+    <ThreadAuthorComponent
+      label="(edited)"
+      username="smallchanov"
+    />
+  </div>
+  <div
+    className="text leftShift"
+  >
+    <WithStyles(ForwardRef(Chip))
+      color="primary"
+      label="@undefined"
+      variant="outlined"
+    />
+    mockTest
+  </div>
+  <div
+    className="flexWrapper leftShift"
+  >
+    <ThreadAuditComponent
+      createdDate="01/20/2010"
+      dislike={[Function]}
+      dislikesCount="20"
+      isClickable={true}
+      like={[Function]}
+      likeStatus="liked"
+      likesCount="10"
+    />
+    <WithStyles(ForwardRef(Button))
+      color="primary"
+      onClick={[Function]}
+      size="small"
+      variant="outlined"
+    >
+      Reply
+    </WithStyles(ForwardRef(Button))>
+  </div>
+  <div
+    className="divider"
+  />
+</div>
+`;

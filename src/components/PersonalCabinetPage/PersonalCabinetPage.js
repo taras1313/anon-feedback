@@ -6,7 +6,7 @@ import { threadService } from '../../services';
 import Loader from '../Loader/Loader';
 import { ThreadComponent } from '../TreadComponent';
 
-import styles from './PersonalCabinetPage.module.scss';
+import styles from './PersonalCabinetPage.module.scss'; 
 
 const SUBSCRIBED = 'SUBSCRIBED';
 const LIKED = 'LIKED';
@@ -24,7 +24,8 @@ export default class PersonalCabinetPage extends Component {
 	componentDidMount() {
 		const {
 			user: { subscribedThreads }
-		} = this.props;
+    } = this.props;
+    
 		threadService.getSubscribed(subscribedThreads).then(res => {
 			this.setState({ threads: res });
 		});
@@ -40,7 +41,6 @@ export default class PersonalCabinetPage extends Component {
 			user: { createdThreads, subscribedThreads, _id, repliedList }
 		} = this.props;
 
-		console.log('subbed threads', subscribedThreads);
 		const switchOption = () => {
 			switch (option) {
 				case SUBSCRIBED:
@@ -62,7 +62,6 @@ export default class PersonalCabinetPage extends Component {
 		};
 
 		switchOption().then(res => {
-			console.log('res', res);
 			this.setState({ threads: res, option });
 		});
 	};

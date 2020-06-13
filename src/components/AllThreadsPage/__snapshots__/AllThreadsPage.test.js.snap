@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AllThreadsPage snapshot 1`] = `
+<Fragment>
+  <div
+    className="buttonContainer"
+  >
+    <WithStyles(ForwardRef(ButtonGroup))
+      aria-label="small outlined button group"
+      color="primary"
+      size="small"
+    >
+      <WithStyles(ForwardRef(Button))
+        className="active"
+        key="Newest"
+        name="Newest"
+        onClick={[Function]}
+      >
+        <div
+          className="iconWrapper"
+        >
+          <ScheduleIcon />
+        </div>
+        Newest
+      </WithStyles(ForwardRef(Button))>
+      <WithStyles(ForwardRef(Button))
+        className=""
+        key="Most Liked"
+        name="Most Liked"
+        onClick={[Function]}
+      >
+        <div
+          className="iconWrapper"
+        >
+          <FavoriteIcon />
+        </div>
+        Most Liked
+      </WithStyles(ForwardRef(Button))>
+      <WithStyles(ForwardRef(Button))
+        className=""
+        key="Most Discussed"
+        name="Most Discussed"
+        onClick={[Function]}
+      >
+        <div
+          className="iconWrapper"
+        >
+          <WhatshotIcon />
+        </div>
+        Most Discussed
+      </WithStyles(ForwardRef(Button))>
+    </WithStyles(ForwardRef(ButtonGroup))>
+  </div>
+  <ThreadComponent
+    actions={
+      Object {
+        "subscribeToThread": [Function],
+        "unsubscribeFromThread": [Function],
+      }
+    }
+    answersCount={4}
+    author={Object {}}
+    dislikeComment={[Function]}
+    dislikeThread={[Function]}
+    dislikesCount={0}
+    key="1"
+    likeComment={[Function]}
+    likeThread={[Function]}
+    likesCount={7}
+    subscribersCount={9}
+    thread={
+      Object {
+        "_id": 1,
+        "commentsCount": 1,
+        "createdDate": "11/20/2015",
+        "likesCount": 1,
+        "name": "dsfsf",
+      }
+    }
+    threadView="preview"
+  />
+  <ThreadComponent
+    actions={
+      Object {
+        "subscribeToThread": [Function],
+        "unsubscribeFromThread": [Function],
+      }
+    }
+    answersCount={4}
+    author={Object {}}
+    dislikeComment={[Function]}
+    dislikeThread={[Function]}
+    dislikesCount={0}
+    key="2"
+    likeComment={[Function]}
+    likeThread={[Function]}
+    likesCount={7}
+    subscribersCount={9}
+    thread={
+      Object {
+        "_id": 2,
+        "commentsCount": 0,
+        "createdDate": "13/20/2015",
+        "likesCount": 2,
+        "name": "asdad",
+      }
+    }
+    threadView="preview"
+  />
+</Fragment>
+`;

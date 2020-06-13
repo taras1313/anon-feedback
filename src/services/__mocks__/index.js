@@ -1,0 +1,18 @@
+export const threadService = {
+  getSubscribed: jest.fn(() => Promise.resolve([{}])),
+  getLiked: jest.fn(() => Promise.resolve([{}])),
+  getCreated: jest.fn(() => Promise.resolve([{}])),
+  getReplied: jest.fn(() => Promise.resolve([{}])),
+  createThread: jest.fn((thread) => Promise.resolve(thread)),
+  updateThread: jest.fn((thread) => Promise.resolve(thread)),
+  createComment: jest.fn((comment) => Promise.resolve(comment)),
+  updateComment: jest.fn((comment) => Promise.resolve(comment)),
+  getThread: jest.fn((data) => Promise.resolve(data)), 
+  subscribeToThread: jest.fn((data) => Promise.resolve(data)), 
+  unsubscribeFromThread: jest.fn((data) => Promise.resolve(data)), 
+  getThreads: jest.fn(() => Promise.resolve([{}])),
+  like: jest.fn((data) => Promise.resolve(data)), 
+  dislike: jest.fn((data) => Promise.resolve(data)), 
+  likeComment: jest.fn((data) => Promise.resolve(data)), 
+  dislikeComment: jest.fn((data) => Promise.resolve(data)), 
+};

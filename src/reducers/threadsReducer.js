@@ -7,7 +7,7 @@ import {
 	CHANGE_THREAD
 } from '../types/threadTypes';
 
-const initialState = {
+export const initialState = {
 	threadData: {
 		title: '',
 		text: '',
@@ -20,7 +20,7 @@ const initialState = {
 
 // todo think about data flow from redux to thread and modal, current implementation is prototype
 
-const threadsReducer = (state = initialState, action) => {
+export const threadsReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case UPDATE_THREAD_FIELD: {
 			const {

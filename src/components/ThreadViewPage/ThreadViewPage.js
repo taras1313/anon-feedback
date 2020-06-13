@@ -6,7 +6,7 @@ import Loader from '../Loader/Loader';
 export class ThreadViewPage extends React.Component {
 	componentDidMount() {
 		const {
-			actions: { getThreadById },
+			actions: { getThreadById } ,
 			match: {
 				params: { id }
 			}

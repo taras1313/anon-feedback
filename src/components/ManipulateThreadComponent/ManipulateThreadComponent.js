@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -18,224 +18,219 @@ const EDIT = 'edit';
 const CREATE = 'create';
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    width: '80%',
-    height: '70vh'
-  },
-  appBar: {
-    position: 'relative',
-    backgroundColor: '#424b5f',
-    boxShadow: 'none'
-  },
-  title: {
-    marginLeft: theme.spacing(2),
-    textTransform: 'capitalize',
-    flex: 1,
-  },
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    padding: '30px 40px',
-    flexDirection: 'column',
-    flex: 1
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    width: '100%',
-    whiteSpace: 'pre-line'
-  },
-  smallTextField: {
-    width: 200
-  },
-  nickNameWrapper: {
-    display: 'flex',
-    flexDirection: 'column'
-  },
-  formControl: {
-    margin: 0
-  },
-  controlBtns: {
-    marginTop: '16px',
-    marginLeft: 'auto',
-    textTransform: 'capitalize'
-  },
-  button: {
-    fontWeight: 'bold',
-    boxShadow: 'none',
-    marginLeft: '16px',
-    fontSize: '0.7rem'
-  },
-  submitBtn: {
-    backgroundColor: '#65c178',
-    fontWeight: 'bold',
-    color: 'white',
-    '&:hover': {
-      backgroundColor: '#159776'
-    },
-  }
+	root: {
+		width: '80%',
+		height: '70vh'
+	},
+	appBar: {
+		position: 'relative',
+		backgroundColor: '#424b5f',
+		boxShadow: 'none'
+	},
+	title: {
+		marginLeft: theme.spacing(2),
+		textTransform: 'capitalize',
+		flex: 1
+	},
+	container: {
+		display: 'flex',
+		flexWrap: 'wrap',
+		padding: '30px 40px',
+		flexDirection: 'column',
+		flex: 1
+	},
+	textField: {
+		marginLeft: theme.spacing(1),
+		marginRight: theme.spacing(1),
+		width: '100%',
+		whiteSpace: 'pre-line'
+	},
+	smallTextField: {
+		width: 200
+	},
+	nickNameWrapper: {
+		display: 'flex',
+		flexDirection: 'column'
+	},
+	formControl: {
+		margin: 0
+	},
+	controlBtns: {
+		marginTop: '16px',
+		marginLeft: 'auto',
+		textTransform: 'capitalize'
+	},
+	button: {
+		fontWeight: 'bold',
+		boxShadow: 'none',
+		marginLeft: '16px',
+		fontSize: '0.7rem'
+	},
+	submitBtn: {
+		backgroundColor: '#65c178',
+		fontWeight: 'bold',
+		color: 'white',
+		'&:hover': {
+			backgroundColor: '#159776'
+		}
+	}
 }));
 
 const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
+	return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export const ManipulateThreadComponent = (
-  {
-    history,
-    action,
-    isOpen,
-    onClose,
-    actions: {
-      updateThreadField,
-      resetThreadFields,
-      createThread,
-      editThread,
-      setSelectedThread,
-      setUser
-    },
-    threadData: {
-      title,
-      text,
-      username
-    }
-  }) => {
-  const classes = useStyles();
-  const [isChecked, setIsChecked] = useState(false);
+export const ManipulateThreadComponent = ({
+	history,
+	action,
+	isOpen,
+	onClose,
+	actions: { updateThreadField, resetThreadFields, createThread, editThread, setSelectedThread, setUser },
+	threadData: { title, text, username }
+}) => {
+	const classes = useStyles();
+	const [isChecked, setIsChecked] = React.useState(false);
 
-  const toggleAutoGenerator = () => {
-    const config = {
-      dictionaries: [adjectives, animals],
-      separator: ' ',
-      length: 2,
-    };
+	const toggleAutoGenerator = () => {
+		const config = {
+			dictionaries: [adjectives, animals],
+			separator: ' ',
+			length: 2
+		};
 
-    const value = !isChecked ? uniqueNamesGenerator(config) : '';
+		const value = !isChecked ? uniqueNamesGenerator(config) : '';
 
-    updateThreadField({ field: 'username', value });
-    setIsChecked(!isChecked);
-  };
+		updateThreadField({ field: 'username', value });
+		setIsChecked(!isChecked);
+	};
 
-  const updateThreadData = ({ target: { value, name } }) => {console.log(value.toString());updateThreadField({ field: name, value })};
+	const updateThreadData = ({ target: { value, name } }) => {
+		console.log(value.toString());
+		updateThreadField({ field: name, value });
+	};
 
-  const manipulateThread = () => {
-    switch (action) {
-      case EDIT: {
-        editThread().then(data => {
-          setSelectedThread(data);
-          onClose();
-        });
-        break;
-      }
+	const manipulateThread = () => {
+		switch (action) {
+			case EDIT: {
+				editThread().then(data => {
+					setSelectedThread(data);
+					onClose();
+				});
+				break;
+			}
 
-      case CREATE: {
-        createThread().then(({thread, user}) => {
-          const { _id } = thread;
-          const { push } = history;
+			case CREATE: {
+				createThread().then(({ thread, user }) => {
+					const { _id } = thread;
+					const { push } = history;
 
-          setSelectedThread(thread);
-          setUser(user);
-          push(`/feed/${_id}`);
-          onClose();
-        });
-        break;
-      }
+					setSelectedThread(thread);
+					setUser(user);
+					push(`/feed/${_id}`);
+					onClose();
+				});
+				break;
+			}
 
-      default:
-        return;
-    }
-  };
+			default:
+				return;
+		}
+	};
 
-  return (
-    <div>
-      <Dialog
-        fullWidth
-        maxWidth="md"
-        open={isOpen}
-        onClose={onClose}
-        TransitionComponent={Transition}
-      >
-        <AppBar className={classes.appBar}>
-          <Toolbar>
-            <IconButton edge="start" color="inherit" onClick={onClose} aria-label="close">
-              <CloseIcon />
-            </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              {action} Thread
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <div className={classes.container}>
-          {action === CREATE && (
-            <div className={classes.nickNameWrapper}>
-              <TextField
-                autoComplete='off'
-                id="standard-basic"
-                className={cx(classes.textField, classes.smallTextField)}
-                onChange={updateThreadData}
-                required
-                value={username}
-                name="username"
-                label="Anon nick name"
-              />
-              <FormControlLabel
-                className={classes.formControl}
-                control={
-                  <Checkbox
-                    checked={isChecked}
-                    onChange={toggleAutoGenerator}
-                    color="primary"
-                  />
-                }
-                label="Generate nick name for you?"
-              />
-            </div>
-          )}
+	return (
+		<div>
+			<Dialog fullWidth maxWidth="md" open={isOpen} onClose={onClose} TransitionComponent={Transition}>
+				<AppBar className={classes.appBar}>
+					<Toolbar>
+						<IconButton edge="start" color="inherit" onClick={onClose} aria-label="close">
+							<CloseIcon />
+						</IconButton>
+						<Typography variant="h6" className={classes.title}>
+							{action} Thread
+						</Typography>
+					</Toolbar>
+				</AppBar>
+				<div className={classes.container}>
+					{action === CREATE && (
+						<div className={classes.nickNameWrapper}>
+							<TextField
+								autoComplete="off"
+								id="standard-basic"
+								className={cx(classes.textField, classes.smallTextField)}
+								onChange={updateThreadData}
+								required
+								value={username}
+								name="username"
+								label="Anon nick name"
+							/>
+							<FormControlLabel
+								className={classes.formControl}
+								control={
+									<Checkbox checked={isChecked} onChange={toggleAutoGenerator} color="primary" />
+								}
+								label="Generate nick name for you?"
+							/>
+						</div>
+					)}
 
-          <TextField
-            autoComplete='off'
-            required
-            id="standard-multiline-flexible"
-            label="Thread Title"
-            rows="2"
-            multiline
-            value={title}
-            onChange={updateThreadData}
-            name="title"
-            className={classes.textField}
-            margin="normal"
-            variant="outlined" // ?
-            // variant="filled" // ?
-          />
+					<TextField
+						autoComplete="off"
+						required
+						id="standard-multiline-flexible"
+						label="Thread Title"
+						rows="2"
+						multiline
+						value={title}
+						onChange={updateThreadData}
+						name="title"
+						className={classes.textField}
+						margin="normal"
+						variant="outlined"
+					/>
 
-          <TextField
-            required
-            autoComplete='off'
-            id="standard-multiline-flexible"
-            label="Thread Description"
-            multiline
-            rows="6"
-            value={text}
-            onChange={updateThreadData}
-            name="text"
-            className={classes.textField}
-            margin="normal"
-            variant="outlined" // ?
-            // variant="filled" // ?
+					<TextField
+						required
+						autoComplete="off"
+						id="standard-multiline-flexible"
+						label="Thread Description"
+						multiline
+						rows="6"
+						value={text}
+						onChange={updateThreadData}
+						name="text"
+						className={classes.textField}
+						margin="normal"
+						variant="outlined"
+					/>
 
-          />
+					<div className={classes.controlBtns}>
+						<Button
+							variant="contained"
+							onClick={resetThreadFields}
+							color="secondary"
+							className={classes.button}
+						>
+							Reset
+						</Button>
 
-          <div className={classes.controlBtns}>
-            <Button variant="contained" onClick={resetThreadFields} color="secondary" className={classes.button}>
-              Reset
-            </Button>
+						<Button
+							variant="contained"
+							onClick={manipulateThread}
+							className={cx(classes.button, classes.submitBtn)}
+						>
+							{action} Thread
+						</Button>
+					</div>
+				</div>
+			</Dialog>
+		</div>
+	);
+};
 
-            <Button variant="contained" onClick={manipulateThread} className={cx(classes.button, classes.submitBtn)}>
-              {action} Thread
-            </Button>
-          </div>
-        </div>
-      </Dialog>
-    </div>
-  );
+ManipulateThreadComponent.defaultProps = {
+	actions: {
+		updateThreadField: () => {},
+		resetThreadFields: () => {}
+	},
+	threadData: {}
 };

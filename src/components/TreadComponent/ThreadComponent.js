@@ -20,232 +20,227 @@ const viewTypes = [PREVIEW, FULL];
 //todo like logic- when to disable, already liked functionality, dislike cancels like etc.
 
 export class ThreadComponent extends Component {
-  constructor(props) {
-    super(props);
-    const { threadView } = props;
+	constructor(props) {
+		super(props);
+		const { threadView } = props;
 
-    this.renderContent = threadView === FULL ? this.renderThread : this.renderPreviewThread;
+		this.renderContent = threadView === FULL ? this.renderThread : this.renderPreviewThread;
 
-    this.state = {
-      editThreadOpen: false,
-      repliedTo: ''
-    };
-  }
+		this.state = {
+			editThreadOpen: false,
+			repliedTo: ''
+		};
+	}
 
-  onRepliedToReset = () => this.setState({ repliedTo: '' })
+	onRepliedToReset = () => this.setState({ repliedTo: '' });
 
-  closeEditThread = () => this.setState({ editThreadOpen: false });
+	closeEditThread = () => this.setState({ editThreadOpen: false });
 
-  openEditThread = () => {
-    const {
-      actions: { setThreadData },
-      thread: { text, _id, title }
-    } = this.props;
-    setThreadData({ text, _id, title });
+	openEditThread = () => {
+		const {
+			actions: { setThreadData },
+			thread: { text, _id, title }
+		} = this.props;
+		setThreadData({ text, _id, title });
 
-    this.setState({ editThreadOpen: true });
-  };
+		this.setState({ editThreadOpen: true });
+	};
 
-  renderPreviewThread = () => {
-    const {
-      thread: {
-        author: { username } = {},
-        subscribersCount,
-        dislikesCount,
-        likesCount,
-        createdDate,
-        commentsCount
-      }
-    } = this.props;
+	renderPreviewThread = () => {
+		const {
+			thread: {
+				author: { username } = {},
+				subscribersCount,
+				dislikesCount,
+				likesCount,
+				createdDate,
+				commentsCount
+			}
+		} = this.props;
 
-    return (
-      <Fragment>
-        <div>
-          <ThreadAuthorComponent username={username} />
-          {this.renderThreadHeader()}
-          <ThreadAuditComponent
-            subscribersCount={subscribersCount}
-            dislikesCount={dislikesCount}
-            likesCount={likesCount}
-            likeStatus={this.likeStatus()}
-            createdDate={createdDate}
-          />
-        </div>
-        <div className={styles.answersCount}>
-          <div className={styles.counterWrapper}>
-            <QuestionAnswerOutlinedIcon />
-            {commentsCount}
-          </div>
-          <span>answer(s)</span>
-        </div>
-      </Fragment>
-    );
-  };
+		return (
+			<Fragment>
+				<div>
+					<ThreadAuthorComponent username={username} />
+					{this.renderThreadHeader()}
+					<ThreadAuditComponent
+						subscribersCount={subscribersCount}
+						dislikesCount={dislikesCount}
+						likesCount={likesCount}
+						likeStatus={this.likeStatus()}
+						createdDate={createdDate}
+					/>
+				</div>
+				<div className={styles.answersCount}>
+					<div className={styles.counterWrapper}>
+						<QuestionAnswerOutlinedIcon />
+						{commentsCount}
+					</div>
+					<span>answer(s)</span>
+				</div>
+			</Fragment>
+		);
+	};
 
-  subscriptionHandler = () => {
-    const {
-      actions: {
-        subscribeToThread,
-        unsubscribeFromThread
-      },
-      thread: { _id: threadId },
-      userId
-    } = this.props;
+	subscriptionHandler = () => {
+		const {
+			actions: { subscribeToThread, unsubscribeFromThread },
+			thread: { _id: threadId },
+			userId
+		} = this.props;
 
-    const isSubscribed = this.isSubscribed();
-    const params = { threadId, userId };
+		const isSubscribed = this.isSubscribed();
+		const params = { threadId, userId };
 
-    if (isSubscribed) {
-      unsubscribeFromThread(params)
-    } else {
-      subscribeToThread(params);
-    }
-  };
+		if (isSubscribed) {
+			unsubscribeFromThread(params);
+		} else {
+			subscribeToThread(params);
+		}
+	};
 
-  isSubscribed = () => {
-    const { thread: { subscribers }, userId } = this.props;
-    return !!subscribers.find(user => user.userId === userId);
-  };
+	isSubscribed = () => {
+		const {
+			thread: { subscribers = [] },
+			userId
+		} = this.props;
+		return !!subscribers.find(user => user.userId === userId);
+	};
 
-  isAuthor = () => {
-    const { thread: { author: { userId: authorId } }, userId } = this.props;
+	isAuthor = () => {
+		const {
+			thread: { author: { userId: authorId } = {} },
+			userId
+		} = this.props;
 
-    return authorId === userId;
-  };
+		return authorId === userId;
+	};
 
-  findUserInThread = () => {
-    const { userId, thread: { users } } = this.props;
+	findUserInThread = () => {
+		const {
+			userId,
+			thread: { users = [] }
+		} = this.props;
 
-    return users.find(user => user.userId === userId);
-  };
+		return users.find(user => user.userId === userId);
+	};
 
-  likeStatus = () => {
-    const {
-      userId,
-      thread: {
-        likesList,
-        dislikesList
-      }
-    } = this.props;
-    console.log({likesList,dislikesList, userId}, this.props);
+	likeStatus = () => {
+		const {
+			userId,
+			thread: { likesList = [], dislikesList = [] }
+		} = this.props;
 
-    if (likesList.find(el => el.userId === userId)) return 'liked';
-    if (dislikesList.find(el => el.userId === userId)) return 'disliked';
-    return null
-  };
+		if (likesList.find(el => el.userId === userId)) return 'liked';
+		if (dislikesList.find(el => el.userId === userId)) return 'disliked';
+		return null;
+	};
 
-  repliedToHandler = (username) => {
-    window.scrollTo(0,document.body.scrollHeight);
-    this.setState({ repliedTo: username });
-  };
+	repliedToHandler = username => {
+		window.scrollTo(0, document.body.scrollHeight);
+		this.setState({ repliedTo: username });
+	};
 
-  renderThread = () => {
-    const { editThreadOpen, repliedTo } = this.state;
+	renderThread = () => {
+		const { editThreadOpen, repliedTo } = this.state;
 
-    const {
-      userId,
-      thread: {
-        _id: id,
-        text,
-        subscribersCount,
-        dislikesCount,
-        likesCount,
-        commentsList,
-        commentsCount,
-        createdDate,
-        author: { userId: threadAuthorId, username: authorName } = {}
-      },
-      likeThread,
-      dislikeThread,
-      likeComment,
-      dislikeComment,
-      actions: { onCreateComment, onUpdateComment }
-    } = this.props;
-    const subscribed = this.isSubscribed();
-    const { username } = this.findUserInThread() || {};
+		const {
+			userId,
+			thread: {
+				_id: id,
+				text,
+				subscribersCount,
+				dislikesCount,
+				likesCount,
+				commentsList,
+				commentsCount,
+				createdDate,
+				author: { userId: threadAuthorId, username: authorName } = {}
+			},
+			likeThread,
+			dislikeThread,
+			likeComment,
+			dislikeComment,
+			actions: { onCreateComment, onUpdateComment }
+		} = this.props;
+		const subscribed = this.isSubscribed();
+		const { username } = this.findUserInThread() || {};
 
-    return (
-      <div className={styles.threadFullWrapper}>
-        <div className={styles.headingWrapper}>
-          <ThreadAuthorComponent username={authorName} />
-          {
-            this.isAuthor() && <Button onClick={this.openEditThread} color="secondary">
-              Edit
-            </Button>
-          }
-        </div>
-        <div className={styles.divider} />
-        {this.renderThreadHeader()}
-        <div className={styles.description}>
-          {text}
-        </div>
-        <div className={styles.subsWrapper}>
-          <ThreadAuditComponent
-            createdDate={createdDate}
-            subscribersCount={subscribersCount}
-            dislikesCount={dislikesCount}
-            likesCount={likesCount}
-            likeStatus={this.likeStatus()}
-            dislike={dislikeThread.bind(null, { id, userId })}
-            like={likeThread.bind(null, { id, userId })}
-            isClickable
-          />
+		return (
+			<div className={styles.threadFullWrapper}>
+				<div className={styles.headingWrapper}>
+					<ThreadAuthorComponent username={authorName} />
+					{this.isAuthor() && (
+						<Button data-testid="editThread" onClick={this.openEditThread} color="secondary">
+							Edit
+						</Button>
+					)}
+				</div>
+				<div className={styles.divider} />
+				{this.renderThreadHeader()}
+				<div className={styles.description}>{text}</div>
+				<div className={styles.subsWrapper}>
+					<ThreadAuditComponent
+						createdDate={createdDate}
+						subscribersCount={subscribersCount}
+						dislikesCount={dislikesCount}
+						likesCount={likesCount}
+						likeStatus={this.likeStatus()}
+						dislike={dislikeThread.bind(null, { id, userId })}
+						like={likeThread.bind(null, { id, userId })}
+						isClickable
+					/>
 
-          <Button
-            className={styles.btn}
-            variant="outlined"
-            onClick={this.subscriptionHandler}
-            color={subscribed ? 'secondary' : 'primary'}
-          >
-            {subscribed ? 'Unsubscribe' : 'Subscribe'}
-          </Button>
-        </div>
-        <div className={styles.dividerWrapper}>
-          Total comments ({commentsCount})
-        </div>
+					<Button
+						className={styles.btn}
+						variant="outlined"
+						data-testid="subscribeButton"
+						onClick={this.subscriptionHandler}
+						color={subscribed ? 'secondary' : 'primary'}
+					>
+						{subscribed ? 'Unsubscribe' : 'Subscribe'}
+					</Button>
+				</div>
+				<div className={styles.dividerWrapper}>Total comments ({commentsCount})</div>
 
-        <div className={styles.comments}>
-          {commentsList.map(el => {
+				<div className={styles.comments}>
+					{commentsList.map(el => {
+						return (
+							<CommentComponent
+								data-testid="comment"
+								threadId={id}
+								userId={userId}
+								onUpdateComment={onUpdateComment}
+								editable={el.author.userId === userId}
+								comment={el}
+								isAuthorsComment={el.author.userId === threadAuthorId}
+								repliedToHandler={this.repliedToHandler}
+								likeComment={likeComment}
+								dislikeComment={dislikeComment}
+							/>
+						);
+					})}
+				</div>
 
-            return (
-              <CommentComponent
-                threadId={id}
-                userId={userId}
-                onUpdateComment={onUpdateComment}
-                editable={el.author.userId === userId}
-                comment={el}
-                isAuthorsComment={el.author.userId === threadAuthorId}
-                repliedToHandler={this.repliedToHandler}
-                likeComment={likeComment}
-                dislikeComment={dislikeComment}
-              />
-            )
-          })}
-        </div>
+				<div className={styles.dividerWrapper}>
+					{!!username ? <span className={styles.userHighlight}>{username},</span> : ''} Write your comment
+					here
+				</div>
+				<CreateCommentComponent
+					repliedTo={repliedTo}
+					onCreateComment={onCreateComment}
+					username={username}
+					onRepliedToReset={this.onRepliedToReset}
+				/>
 
-        <div className={styles.dividerWrapper}>
-          {!!username ?
-            <span className={styles.userHighlight}>{username},</span> : ''} Write your comment here
-        </div>
-        <CreateCommentComponent
-          repliedTo={repliedTo}
-          onCreateComment={onCreateComment}
-          username={username}
-          onRepliedToReset={this.onRepliedToReset}
-        />
+				<ManipulateThreadComponent onClose={this.closeEditThread} isOpen={editThreadOpen} action="edit" />
+			</div>
+		);
+	};
 
-        <ManipulateThreadComponent
-          onClose={this.closeEditThread}
-          isOpen={editThreadOpen}
-          action="edit"
-        />
-      </div>
-    );
-  };
-
-  renderThreadHeader = () => {
-    const { threadView } = this.props;
-    const { title = 'What to learn SWIFT or GO?', _id: id } = this.props.thread;
+	renderThreadHeader = () => {
+		const { threadView } = this.props;
+		const { title = 'What to learn SWIFT or GO?', _id: id } = this.props.thread;
 
 		return (
 			<NavLink to={`/feed/${id}`}>
@@ -287,5 +282,11 @@ ThreadComponent.defaultProps = {
 	answersCount: randomize(),
 	dislikesCount: randomize(),
 	likesCount: randomize(),
-	author: {}
+	author: {},
+	thread: { commentsList: [] },
+	dislikeThread: () => {},
+	likeThread: () => {},
+	likeComment: () => {},
+	dislikeComment: () => {},
+	actions: { subscribeToThread: () => {}, unsubscribeFromThread: () => {} }
 };

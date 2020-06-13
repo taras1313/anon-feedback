@@ -7,13 +7,15 @@ export class ThreadService {
 		this._likeUrl = pathList.thread.like;
 		this._dislikeUrl = pathList.thread.dislike;
 	}
-
-	getThreads = params => {
-		return this._adapter.get(this._baseUrl, params).then(({ data }) => data);
-	};
+ 
 	getThread = id => {
 		return this._adapter.get(`${this._baseUrl}/${id}`).then(({ data }) => data);
 	};
+	dislike = ({ id, userId }) => {
+		return this._adapter.patch(`${this._dislikeUrl}`, { id, userId }).then(({ data }) => data);
+	};
+	getThreads = params => this._adapter.get(this._baseUrl, params).then(({ data }) => data);
+	
 
 	getSubscribed = subscribedThreadsIds => {
 		return this._adapter.get(`${this._baseUrl}/subscribed`, { subscribedThreadsIds }).then(({ data }) => data);
@@ -24,7 +26,6 @@ export class ThreadService {
 	};
 
 	getReplied = threadsIds => {
-		console.log()
 		return this._adapter.get(`${this._baseUrl}/replied`, { threadsIds }).then(({ data }) => data);
 	};
 
@@ -58,10 +59,6 @@ export class ThreadService {
 
 	like = ({ id, userId }) => {
 		return this._adapter.patch(`${this._likeUrl}`, { id, userId }).then(({ data }) => data);
-	};
-
-	dislike = ({ id, userId }) => {
-		return this._adapter.patch(`${this._dislikeUrl}`, { id, userId }).then(({ data }) => data);
 	};
 
 	likeComment = ({ id, userId, commentId }) => {

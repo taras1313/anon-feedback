@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component renders w/o props 1`] = `
+<div>
+  <div
+    className="makeStyles-nickNameWrapper-9"
+  >
+    <WithStyles(ForwardRef(TextField))
+      autoComplete="off"
+      className="makeStyles-textField-7 makeStyles-smallTextField-8"
+      id="standard-basic"
+      label="Anon nick name"
+      name="username"
+      onChange={[Function]}
+      required={true}
+      value=""
+    />
+    <WithStyles(ForwardRef(FormControlLabel))
+      className="makeStyles-formControl-10"
+      control={
+        <ForwardRef(WithStyles)
+          checked={false}
+          color="primary"
+          onChange={[Function]}
+        />
+      }
+      label="Generate nick name for you?"
+    />
+  </div>
+  <WithStyles(ForwardRef(TextField))
+    autoComplete="off"
+    className="makeStyles-textField-7"
+    id="standard-multiline-flexible"
+    label="Your comment"
+    margin="normal"
+    multiline={true}
+    name="text"
+    onChange={[Function]}
+    required={true}
+    rows="6"
+    value=""
+    variant="filled"
+  />
+  <div
+    className="makeStyles-controlBtns-11"
+  >
+    <WithStyles(ForwardRef(Button))
+      className="makeStyles-button-12"
+      data-testid="here"
+      onClick={[Function]}
+      variant="outlined"
+    >
+      Reset
+    </WithStyles(ForwardRef(Button))>
+    <WithStyles(ForwardRef(Button))
+      className="makeStyles-button-12"
+      color="primary"
+      onClick={[Function]}
+      variant="outlined"
+    >
+      Create Comment
+    </WithStyles(ForwardRef(Button))>
+  </div>
+</div>
+`;
